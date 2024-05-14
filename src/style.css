@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
 .title{
     display: flex;
     flex-direction: row;
@@ -18,7 +25,7 @@
     height: 25rem;
     background-color: black; /*NEED IT TO BE Changeable base on user demand*/
     border-radius: 2rem;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
 
@@ -39,11 +46,6 @@
     transition: all 1s;
 }
 
-/*Input field effect*/
-#input:not(:placeholder-shown){
-    background-color: lightgrey;
-}
-
 .FSbutton{
     font-family: Roboto Mono;
     height: 2.7rem;
@@ -53,6 +55,17 @@
     font-weight: bold;
     background-color: white;
     transition: all .3s;
+}
+
+/*Input field effect*/
+#input:not(:placeholder-shown){
+    background-color: whitesmoke;
+    font-weight:bold;
+}
+
+#input:focus{
+    outline: none;
+    box-shadow: 3px 3px 3px grey;
 }
 
 /*button effects*/
@@ -67,10 +80,67 @@
     color: white;
 }
 
+.FSbutton:focus{
+    outline: none;
+    box-shadow: 3px 3px 3px grey;
+}
+
+/*Dropdown Menu*/
+.dropdown-menu{
+    font-family: Roboto Mono;
+    padding: 1rem;
+    margin: .3rem;
+    width: 90vw;
+}
+
+.dropdown-menu ul{
+    list-style-type: none;
+}
+
+.dropdown-menu label{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: .5rem;
+    border-radius: .3rem;
+    max-width: 0;
+}
+
+.CustomContent{
+    max-height: 0;
+    overflow: hidden;
+    padding: .5rem;
+}
+
+#CustomMenu{
+    display: none; /*hide checkbox*/
+}
+
+/*Checked, Unchecked toggle*/
+input:checked ~ label{  /*For label "Custom"*/
+    display: block;
+    border: 1px solid black;
+    width: 100%;
+    border-radius: .3rem .3rem 0rem 0rem;
+    transition: all 10ms ease-out;
+    max-width: 100%;
+}
+
+input:checked ~.CustomContent{  /*For the content*/
+    display: block;
+    max-height: 500px;
+    border: 1px solid black;
+    border-top: 0px;
+    transition: all 2s ease-in-out;
+    width: 100%;
+}
+
 footer{
+    position: static;
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: Roboto Mono;
+    padding: 1rem;
 }
 
