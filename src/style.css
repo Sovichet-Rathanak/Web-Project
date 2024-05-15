@@ -107,9 +107,9 @@ body{
 }
 
 .CustomContent{
-    max-height: 0;
     overflow: hidden;
     padding: .5rem;
+    max-height: 0;
 }
 
 #CustomMenu{
@@ -131,7 +131,7 @@ input:checked ~ .CustomContent{  /*For the content*/
     max-height: 500px;
     border: 1px solid black;
     border-top: 0px;
-    transition: all 2s ease-in-out;
+    transition: max-height 2s ease-in-out;
     width: 90rem;
 }
 /*--------------------------*/
@@ -171,7 +171,19 @@ input:checked ~ .CustomContent{  /*For the content*/
 
 #FontSelector{
     border: none;
-    font-weight: bold;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border-bottom: 1.5px solid black;
+    padding: .2rem;
+    cursor: pointer;
+    width: 100px;
+}
+
+#FontSelector:focus{
+    outline: none;
+    border-bottom: 2px solid skyblue;
 }
 
 footer{ 
