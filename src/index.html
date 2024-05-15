@@ -26,8 +26,13 @@
                 <label for="CustomMenu">Custom</label>
                 <div class="CustomContent">
                     <ul>
-                        <li>Text Color</li>
-                        <li>Font</li>
+                        <li class="color">
+                            <span> Pick Your Color: </span> <!--cannot use label because it's parent has been selected-->
+                            <input type="color" id="ColorPicker" value="#000000">
+                        </li>
+                        <li>
+                            <span>Pick Your Font</span>
+                        </li>
                         <li>Background Color</li>
                         <li>Blink Speed</li>
                     </ul>

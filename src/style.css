@@ -96,7 +96,7 @@ body{
 }
 
 .dropdown-menu ul{
-    list-style-type: none;
+    list-style-type: "> " ;
 }
 
 .dropdown-menu label{
@@ -127,7 +127,7 @@ input:checked ~ label{  /*For label "Custom"*/
     max-width: 100rem;
 }
 
-input:checked ~.CustomContent{  /*For the content*/
+input:checked ~ .CustomContent{  /*For the content*/
     display: block;
     max-height: 500px;
     border: 1px solid black;
@@ -136,6 +136,11 @@ input:checked ~.CustomContent{  /*For the content*/
     width: 90rem;
 }
 /*--------------------------*/
+
+/*Content*/
+.color{
+    padding: .3rem;
+}
 
 footer{
     position: static;
