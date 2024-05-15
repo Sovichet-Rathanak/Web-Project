@@ -103,13 +103,13 @@ body{
     border: 1px solid black;
     padding: .5rem;
     border-radius: .3rem;
-    max-width: 0;
 }
 
 .CustomContent{
     overflow: hidden;
     padding: .5rem;
-    max-height: 0;
+    border: none;
+    max-height: 0px;
 }
 
 #CustomMenu{
@@ -120,10 +120,9 @@ body{
 input:checked ~ label{  /*For label "Custom"*/
     display: block;
     border: 1px solid black;
-    width: 90rem;
     border-radius: .3rem .3rem 0rem 0rem;
-    transition: all 10ms ease-out;
-    max-width: 100rem;
+    transition: all .4s ease-out;
+    max-width: 90rem;
 }
 
 input:checked ~ .CustomContent{  /*For the content*/
@@ -131,8 +130,25 @@ input:checked ~ .CustomContent{  /*For the content*/
     max-height: 500px;
     border: 1px solid black;
     border-top: 0px;
-    transition: max-height 2s ease-in-out;
-    width: 90rem;
+    transition: max-height .5s ease-in-out;
+    transition-delay: .4s;
+    max-width: 90rem;
+}
+
+input:not(:checked) ~ label{
+    display: block;
+    max-width: 100px;
+    transition: max-width .7s ease-out;
+    transition-delay: .7s; 
+} 
+
+input:not(:checked) ~ .CustomContent{
+    max-height: 0px;
+    transition: all .7s ease-in-out;
+    border-top: 0px;
+    border: 1px solid black;
+    opacity: 0;    
+    max-width: 90rem;
 }
 /*--------------------------*/
 
@@ -169,6 +185,7 @@ input:checked ~ .CustomContent{  /*For the content*/
     padding: .3rem;
 }
 
+/*Font Selector*/
 #FontSelector{
     border: none;
     appearance: none;
