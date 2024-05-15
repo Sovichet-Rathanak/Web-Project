@@ -28,10 +28,20 @@
                     <ul>
                         <li class="color">
                             <span> Pick Your Color: </span> <!--cannot use label because it's parent has been selected-->
-                            <input type="color" id="ColorPicker" value="#000000">
+                            <input type="color" id="ColorPicker" value="#FF0000">
                         </li>
-                        <li>
-                            <span>Pick Your Font</span>
+                        <li class="font">
+                            <span>Pick Your Font: </span>
+                            <select id="FontSelector">
+                                <optgroup label="Choose A Font">
+                                    <option class="default">Choose A Font</option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </optgroup>
+                            </select>
                         </li>
                         <li>Background Color</li>
                         <li>Blink Speed</li>

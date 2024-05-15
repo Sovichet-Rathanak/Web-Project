@@ -5,6 +5,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    font-family: Roboto Mono;
 }
 
 .title{
@@ -12,7 +13,6 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-family: Roboto Mono;
 }
 
 /*outer box*/
@@ -89,7 +89,6 @@ body{
 
 /*Dropdown Menu*/
 .dropdown-menu{
-    font-family: Roboto Mono;
     padding: .5rem;
     margin: .6rem;
     width: 100rem;
@@ -138,11 +137,44 @@ input:checked ~ .CustomContent{  /*For the content*/
 /*--------------------------*/
 
 /*Content*/
+/*Color Picker*/
 .color{
     padding: .3rem;
 }
 
-footer{
+#ColorPicker{
+    position: relative;
+    top: 6px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    border: none;
+}
+
+#ColorPicker::-webkit-color-swatch{
+    border: 2px solid black;
+    border-radius: .3rem;
+}
+
+#ColorPicker::-moz-color-swatch{
+    border: 2px solid black;
+    border-radius: .3rem;
+}
+
+.font{
+    padding: .3rem;
+}
+
+#FontSelector{
+    border: none;
+    font-weight: bold;
+}
+
+footer{ 
     position: static;
     display: flex;
     flex-direction: column;
