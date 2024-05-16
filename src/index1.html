@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LED Textboard</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header><h1 class="title">Text Board</h1></header>
+        <main>
+            <!--Display box-->
+            <div class = "outerbox">
+                <div class="overlayScreenImage"></div>
+            </div>
+
+            <!-- Input field and full screen buttons-->
+            <div class="Input_Fullscreen">
+                <input type="text" placeholder="Enter your text..." id="input">
+                <button class="FSbutton">Full Screen</button>
+            </div>
+            
+            <!-- All of the buttons below the input button-->
+            <div class="dropdown-menu">
+                <input type="checkbox" id="CustomMenu">
+                <label for="CustomMenu">Custom</label>
+                <div class="CustomContent">
+                    <ul>
+                        <li>Text Color</li>
+                        <li>Font</li>
+                        <li>Background Color</li>
+                        <li>Blink Speed</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <footer> 
+            <div class="guide_theme">
+                <a href="">User Guide</a>/<a href="">Theme</a>
+            </div>
+        </footer>
+    </body>
+</html>
