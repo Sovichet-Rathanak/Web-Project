@@ -5,7 +5,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    font-family: Roboto Mono;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .title{
@@ -23,7 +23,7 @@ body{
     border: 3px solid black;
     width: auto;
     height: 25rem;
-    background-color: black; /*NEED IT TO BE Changeable base on user demand*/
+    background-color: blue; /* Initial background color */
     border-radius: 2rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -40,7 +40,7 @@ body{
 #input{
     width: 91rem;
     height: 2rem;
-    font-family: Roboto Mono;
+    font-family: 'Roboto Mono', monospace;
     border: 1px solid black;
     border-radius: .3rem;
     padding: .3rem;
@@ -48,7 +48,7 @@ body{
 }
 
 .FSbutton{
-    font-family: Roboto Mono;
+    font-family: 'Roboto Mono', monospace;
     height: 2.7rem;
     padding: .3rem;
     border: 1px solid black;
@@ -61,7 +61,7 @@ body{
 /*Input field effect*/
 #input:not(:placeholder-shown){
     background-color: whitesmoke;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 #input:focus{
@@ -85,7 +85,6 @@ body{
     outline: none;
     box-shadow: 3px 3px 3px grey;
 }
-/*--------------------------*/
 
 /*Dropdown Menu*/
 .dropdown-menu{
@@ -95,7 +94,7 @@ body{
 }
 
 .dropdown-menu ul{
-    list-style-type: "> " ;
+    list-style-type: "> ";
 }
 
 .dropdown-menu label{
@@ -139,23 +138,23 @@ input:not(:checked) ~ label{
     display: block;
     max-width: 100px;
     transition: max-width .7s ease-out;
-    transition-delay: .7s; 
-} 
+    transition-delay: .7s;
+}
 
 input:not(:checked) ~ .CustomContent{
     max-height: 0px;
     transition: all .7s ease-in-out;
     border-top: 0px;
     border: 1px solid black;
-    opacity: 0;    
+    opacity: 0;
     max-width: 90rem;
 }
-/*--------------------------*/
 
 /*Content*/
 /*Color Picker*/
 .color{
     padding: .3rem;
+    margin-bottom: 10px;
 }
 
 #ColorPicker{
@@ -183,6 +182,7 @@ input:not(:checked) ~ .CustomContent{
 
 .font{
     padding: .3rem;
+    margin-bottom: 10px;
 }
 
 /*Font Selector*/
@@ -206,7 +206,6 @@ input:not(:checked) ~ .CustomContent{
 /*Font Type*/
 .danfo{
     font-family: "Danfo", sans-serif;
-    
 }
 
 .jaro{
@@ -219,16 +218,43 @@ input:not(:checked) ~ .CustomContent{
 }
 
 .ibm{
-    font-family: "IBM Plex Mono", monospace ;
+    font-family: "IBM Plex Mono", monospace;
 }
 
-footer{ 
+footer {
     position: static;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    font-family: Roboto Mono;
+    justify-content: center; /* Add the missing value here */
+    font-family: 'Roboto Mono', monospace;
     padding: 1rem;
 }
 
+.SBC {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#TCP {
+    position: relative;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    height: 2rem;
+    width: 2rem;
+    border: none;
+    bottom: 5px;
+    margin-left: 4px;
+}
+
+#TCP::-webkit-color-swatch{
+    border: 2px solid black;
+    border-radius: .3rem;
+}
+
+#TCP::-moz-color-swatch {
+    border: 2px solid black;
+    border-radius: .3rem; 
+}

@@ -10,7 +10,7 @@
         <header><h1 class="title">Text Board</h1></header>
         <main>
             <!--Display box-->
-            <div class = "outerbox">
+            <div class="outerbox">
                 <div class="overlayScreenImage"></div>
             </div>
 
@@ -27,29 +27,33 @@
                 <div class="CustomContent">
                     <ul>
                         <li class="color">
-                            <span> Pick Your Color: </span> <!--cannot use label because it's parent has been selected-->
+                            <span> Pick Your Color: </span>
                             <input type="color" id="ColorPicker" value="#FF0000">
                         </li>
                         <li class="font">
                             <span>Pick Your Font: </span>
                             <select id="FontSelector">
-                                    <option value="" class="default-option" disabled selected>Choose A Font</option>
-                                    <option class="danfo" value="danfo">Danfo</option>
-                                    <option class="jaro" value="jaro">Jaro</option>
-                                    <option class="asap" value="asap">Asap</option>
-                                    <option class="ibm" value="ibm">IBM Plex Mono</option>
+                                <option value="" class="default-option" disabled selected>Choose A Font</option>
+                                <option class="danfo" value="danfo">Danfo</option>
+                                <option class="jaro" value="jaro">Jaro</option>
+                                <option class="asap" value="asap">Asap</option>
+                                <option class="ibm" value="ibm">IBM Plex Mono</option>
                             </select>
                         </li>
-                        <li>Background Color</li>
+                        <div class="SBC">
+                            <li>Background Color:</li>
+                            <input type="color" id="TCP" class="color-bg" value="#FF0000">
+                        </div>
                         <li>Blink Speed</li>
                     </ul>
                 </div>
             </div>
         </main>
-        <footer> 
+        <footer>
             <div class="guide_theme">
                 <a href="">User Guide</a>/<a href="">Theme</a>
             </div>
         </footer>
+        <script src="script.js"></script>
     </body>
 </html>
