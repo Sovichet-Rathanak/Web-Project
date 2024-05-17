@@ -23,11 +23,17 @@ body{
     border: 3px solid black;
     width: auto;
     height: 25rem;
-    background-color: blue; /* Initial background color */
+    background-color: black; /* Initial background color */
     border-radius: 2rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
+
+/*LED Text*/
+#led-text{
+    color: #FFF000;
+}
+
 
 /*Input text and fullscreen button*/
 .Input_Fullscreen{
@@ -37,7 +43,7 @@ body{
     width: 100rem;
 }
 
-#input{
+#Input{
     width: 91rem;
     height: 2rem;
     font-family: 'Roboto Mono', monospace;
@@ -59,12 +65,12 @@ body{
 }
 
 /*Input field effect*/
-#input:not(:placeholder-shown){
+#Input:not(:placeholder-shown){
     background-color: whitesmoke;
     font-weight: bold;
 }
 
-#input:focus{
+#Input:focus{
     outline: none;
     box-shadow: 3px 3px 3px grey;
 }
