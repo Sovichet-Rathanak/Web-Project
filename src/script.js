@@ -2,8 +2,11 @@
 const boardColorPicker = document.getElementById('TCP');
 const outerbox = document.querySelector('.outerbox');
 // Canvas
-const canvas = document.getElementById('mycanvas');
+const canvas = document.getElementById('led-text');
 const ctx = canvas.getContext("2d");
+
+// 
+
 
 // Add an event listener to the color picker input
 boardColorPicker.addEventListener('input', () => {
@@ -11,18 +14,25 @@ boardColorPicker.addEventListener('input', () => {
     outerbox.style.backgroundColor = boardColorPicker.value;
 });
 
-//Getting user input from text field
 document.addEventListener('DOMContentLoaded', (event) => {
     const userInput = document.getElementById("Input");
-    // const ledText = document.getElementById("led-text");
-
+    const textColor = document.getElementById('ColorPicker');    
+    console.log(textColor);
     // Event listener for input field
     userInput.addEventListener('input', () => {
-        // ledText.textContent = userInput.value;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillText(userInput.value, 10, 80);
+       updateCanvas(userInput.value, textColor.value);
     });
+    textColor.addEventListener('input', () => {
+        updateCanvas(userInput.value, textColor.value);
+     });
 });
 
-
-
+function updateCanvas(text, color) {
+     // Clear the canvas before drawing new text
+     ctx.clearRect(0, 0, canvas.width, canvas.height);
+     // Set font properties (optional, you can customize this)
+     ctx.font = '30px Arial';
+     ctx.fillStyle = color;  // Default text color (can be customized)
+     ctx.textAlign = "center";
+     ctx.fillText(text, canvas.width/2, 80);  // Drawing text on canvas
+}
