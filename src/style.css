@@ -1,271 +1,285 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Danfo&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jaro:opsz@6..72&display=swap');
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-    font-family: 'Roboto Mono', monospace;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Danfo&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jaro:opsz@6..72&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  font-family: "Roboto Mono", monospace;
 }
 
-.title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  padding-inline: 4rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 /*outer box*/
-.outerbox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid black;
-    width: auto;
-    height: 25rem;
-    background-color: white; /* Initial background color */
-    border-radius: 2rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+.outerbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  width: auto;
+  height: 25rem;
+  background-color: black; /* Initial background color */
+  border-radius: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 /*LED Text*/
-#led-text{
-    color: #FFF000;
+#led-text {
+  color: black;
 }
-
 
 /*Input text and fullscreen button*/
-.Input_Fullscreen{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100rem;
+.Input_Fullscreen {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
 
-#Input{
-    width: 91rem;
-    height: 2rem;
-    font-family: 'Roboto Mono', monospace;
-    border: 1px solid black;
-    border-radius: .3rem;
-    padding: .3rem;
-    transition: all 1s;
+#Input {
+  width: 91rem;
+  height: 2rem;
+  font-family: "Roboto Mono", monospace;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  transition: all 1s;
 }
 
-.FSbutton{
-    font-family: 'Roboto Mono', monospace;
-    height: 2.7rem;
-    padding: .3rem;
-    border: 1px solid black;
-    border-radius: .3rem;
-    font-weight: bold;
-    background-color: white;
-    transition: all .3s;
+.FSbutton {
+  font-family: "Roboto Mono", monospace;
+  height: 2.7rem;
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  background-color: white;
+  transition: all 0.3s;
+  margin-left: 1rem;
 }
 
 /*Input field effect*/
-#Input:not(:placeholder-shown){
-    background-color: whitesmoke;
-    font-weight: bold;
+#Input:not(:placeholder-shown) {
+  background-color: whitesmoke;
+  font-weight: bold;
 }
 
-#Input:focus{
-    outline: none;
-    box-shadow: 3px 3px 3px grey;
+#Input:focus {
+  outline: none;
+  box-shadow: 3px 3px 3px grey;
 }
 
 /*button effects*/
-.FSbutton:hover{
-    box-shadow: 3px 3px 3px grey;
+.FSbutton:hover {
+  box-shadow: 3px 3px 3px grey;
 }
 
-.FSbutton:active{
-    box-shadow: 0px 0px 0px;
-    background-color: grey;
-    transition-duration: .3s;
-    color: white;
+.FSbutton:active {
+  box-shadow: 0px 0px 0px;
+  background-color: grey;
+  transition-duration: 0.3s;
+  color: white;
 }
 
-.FSbutton:focus{
-    outline: none;
-    box-shadow: 3px 3px 3px grey;
+.FSbutton:focus {
+  outline: none;
+  box-shadow: 3px 3px 3px grey;
 }
 
 /*Dropdown Menu*/
-.dropdown-menu{
-    padding: .5rem;
-    margin: .6rem;
-    width: 100rem;
+.dropdown-menu {
+  padding: 0.5rem;
+  padding-inline: 3.5rem;
+  margin: 0.6rem;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
 }
 
-.dropdown-menu ul{
-    list-style-type: "> ";
+.dropdown-menu ul {
+  list-style-type: "> ";
 }
 
-.dropdown-menu label{
-    cursor: pointer;
-    border: 1px solid black;
-    padding: .5rem;
-    border-radius: .3rem;
+.dropdown-menu label {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 0.5rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+  width: auto;
 }
 
-.CustomContent{
-    overflow: hidden;
-    padding: .5rem;
-    border: none;
-    max-height: 0px;
+.CustomContent {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-top: 0px;
+  max-height: auto;
 }
 
-#CustomMenu{
-    display: none; /*hide checkbox*/
+#CustomMenu {
+  display: none; /*hide checkbox */
 }
 
 /*Checked, Unchecked toggle*/
-input:checked ~ label{  /*For label "Custom"*/
+/* input:checked ~ label{  
     display: block;
     border: 1px solid black;
     border-radius: .3rem .3rem 0rem 0rem;
-    transition: all .4s ease-out;
-    max-width: 90rem;
+    transition: max-width .4s ease-out;
+    max-width: auto;
 }
 
-input:checked ~ .CustomContent{  /*For the content*/
+input:checked ~ .CustomContent{  
     display: block;
     max-height: 500px;
     border: 1px solid black;
     border-top: 0px;
     transition: max-height .5s ease-in-out;
     transition-delay: .4s;
-    max-width: 90rem;
+    max-width: auto;
 }
 
 input:not(:checked) ~ label{
     display: block;
+    transition: all 1s ease-in-out;
     max-width: 100px;
-    transition: max-width .7s ease-out;
-    transition-delay: .7s;
+    transition-delay: 1s;
 }
 
 input:not(:checked) ~ .CustomContent{
     max-height: 0px;
-    transition: all .7s ease-in-out;
     border-top: 0px;
-    border: 1px solid black;
+    border: 1px solid #000000;
     opacity: 0;
-    max-width: 90rem;
-}
+    max-width: 0;
+} */
 
 /*Content*/
 /*Color Picker*/
-.color{
-    padding: .3rem;
-    margin-bottom: 10px;
+.color {
+  padding: 0.3rem;
+  margin-bottom: 10px;
 }
 
-#ColorPicker{
-    position: relative;
-    top: 6px;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: transparent;
-    cursor: pointer;
-    height: 2rem;
-    width: 2rem;
-    border: none;
+#ColorPicker {
+  position: relative;
+  top: 6px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  border: none;
 }
 
-#ColorPicker::-webkit-color-swatch{
-    border: 2px solid black;
-    border-radius: .3rem;
+#ColorPicker::-webkit-color-swatch {
+  border: 2px solid black;
+  border-radius: 0.3rem;
 }
 
-#ColorPicker::-moz-color-swatch{
-    border: 2px solid black;
-    border-radius: .3rem;
+#ColorPicker::-moz-color-swatch {
+  border: 2px solid black;
+  border-radius: 0.3rem;
 }
 
-.font{
-    padding: .3rem;
-    margin-bottom: 10px;
+.font {
+  padding: 0.3rem;
+  margin-bottom: 10px;
 }
 
 /*Font Selector*/
-#FontSelector{
-    border: none;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: transparent;
-    border-bottom: 1.5px solid black;
-    padding: .2rem;
-    cursor: pointer;
-    width: 100px;
+#FontSelector {
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border-bottom: 1.5px solid black;
+  padding: 0.2rem;
+  cursor: pointer;
+  width: 100px;
 }
 
-#FontSelector:focus{
-    outline: none;
-    border-bottom: 2px solid skyblue;
+#FontSelector:focus {
+  outline: none;
+  border-bottom: 2px solid skyblue;
 }
 
 /*Font Type*/
-.danfo{
-    font-family: "Danfo", sans-serif;
+.danfo {
+  font-family: "Danfo", sans-serif;
 }
 
-.jaro{
-    font-family: "Jaro", sans-serif;
+.jaro {
+  font-family: "Jaro", sans-serif;
 }
 
-.asap{
-    font-family: "Asap", sans-serif;
-    font-weight: 600;
+.asap {
+  font-family: "Asap", sans-serif;
+  font-weight: 600;
 }
 
-.ibm{
-    font-family: "IBM Plex Mono", monospace;
+.ibm {
+  font-family: "IBM Plex Mono", monospace;
 }
 
 footer {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Add the missing value here */
-    font-family: 'Roboto Mono', monospace;
-    padding: 1rem;
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Add the missing value here */
+  font-family: "Roboto Mono", monospace;
+  padding: 1rem;
 }
 
 .SBC {
-    display: flex;
-    margin-bottom: 10px;
+  display: flex;
+  margin-bottom: 10px;
 }
 
 #TCP {
-    position: relative;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: transparent;
-    height: 2rem;
-    width: 2rem;
-    border: none;
-    bottom: 5px;
-    margin-left: 4px;
+  position: relative;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  bottom: 5px;
+  margin-left: 4px;
 }
 
-#TCP::-webkit-color-swatch{
-    border: 2px solid black;
-    border-radius: .3rem;
+#TCP::-webkit-color-swatch {
+  border: 2px solid black;
+  border-radius: 0.3rem;
 }
 
 #TCP::-moz-color-swatch {
-    border: 2px solid black;
-    border-radius: .3rem; 
+  border: 2px solid black;
+  border-radius: 0.3rem;
 }
 
-#led-text{
-    width: 100%;
-    height: 100%;
+#led-text {
+  width: 100%;
+  height: 100%;
 }
