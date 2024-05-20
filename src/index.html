@@ -9,26 +9,26 @@
     <body>
         <header><h1 class="title">Text Board</h1></header>
         <main>
-            <!--Display box-->
-            <div class="outerbox">
-                <div class="overlayScreenImage"></div>
-                <div id="led-text"></div>
+            <!-- Display box -->
+            <div class="outerbox" id="mycanvas">
+                <!-- <div class="overlayScreenImage"></div> -->
+                <canvas id="led-text"></canvas> 
             </div>
 
-            <!-- Input field and full screen buttons-->
+            <!-- Input field and full screen buttons -->
             <div class="Input_Fullscreen">
                 <input type="text" placeholder="Enter your text..." id="Input">
                 <button class="FSbutton">Full Screen</button>
             </div>
             
-            <!-- All of the buttons below the input button-->
+            <!-- All of the buttons below the input button -->
             <div class="dropdown-menu">
                 <input type="checkbox" id="CustomMenu">
                 <label for="CustomMenu">Custom</label>
                 <div class="CustomContent">
                     <ul>
                         <li class="color">
-                            <span> Pick Your Color: </span>
+                            <span>Pick Your Color: </span>
                             <input type="color" id="ColorPicker" value="#FFF000">
                         </li>
                         <li class="font">

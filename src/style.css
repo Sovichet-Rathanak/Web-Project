@@ -23,7 +23,7 @@ body{
     border: 3px solid black;
     width: auto;
     height: 25rem;
-    background-color: black; /* Initial background color */
+    background-color: white; /* Initial background color */
     border-radius: 2rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -263,4 +263,9 @@ footer {
 #TCP::-moz-color-swatch {
     border: 2px solid black;
     border-radius: .3rem; 
+}
+
+#led-text{
+    width: 100%;
+    height: 100%;
 }
