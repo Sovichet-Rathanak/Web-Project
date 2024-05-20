@@ -4,8 +4,10 @@ const outerbox = document.querySelector(".outerbox");
 // Canvas
 const canvas = document.getElementById("led-text");
 const ctx = canvas.getContext("2d");
-
-//
+const ratio = window.devicePixelRatio;
+canvas.width = Math.floor(800 * ratio);
+canvas.height = Math.floor(800 * ratio);
+ctx.scale(ratio, ratio);
 
 // Add an event listener to the color picker input
 boardColorPicker.addEventListener("input", () => {
@@ -30,8 +32,7 @@ function updateCanvas(text, color) {
   // Clear the canvas before drawing new text
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // Set font properties (optional, you can customize this)
-  ctx.font = "25px Arial";
+  ctx.font = "100px Arial";
   ctx.fillStyle = color; // Default text color (can be customized)
-  ctx.textAlign = "center";
-  ctx.fillText(text, canvas.width / 2, 80); // Drawing text on canvas
+  ctx.fillText(text, canvas.width / 2, canvas.height / 2); // Drawing text on canvas
 }
