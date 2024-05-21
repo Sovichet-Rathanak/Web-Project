@@ -8,12 +8,19 @@ const ratio = window.devicePixelRatio;
 canvas.width = Math.floor(800 * ratio);
 canvas.height = Math.floor(800 * ratio);
 ctx.scale(ratio, ratio);
+//Full Screen 
+const FSbutton = document.querySelector('.FSbutton');
 
 // Add an event listener to the color picker input
 boardColorPicker.addEventListener("input", () => {
   // Change the background color of the outerbox based on the selected color
   outerbox.style.backgroundColor = boardColorPicker.value;
 });
+
+//Add event listener to Full Screen Button
+FSbutton.addEventListener('click', function(){
+  toggleFullScreen(canvas);
+})
 
 document.addEventListener("DOMContentLoaded", (event) => {
   const userInput = document.getElementById("Input");
@@ -27,6 +34,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     updateCanvas(userInput.value, textColor.value);
   });
 });
+
+//FullScreen Function
+function toggleFullScreen(canvas) {
+  if (!document.fullscreenElement) {
+    canvas.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
 
 function updateCanvas(text, color) {
   // Clear the canvas before drawing new text
