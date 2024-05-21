@@ -32,7 +32,8 @@ function updateCanvas(text, color) {
   // Clear the canvas before drawing new text
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // Set font properties (optional, you can customize this)
-  ctx.font = "100px Arial";
+  ctx.font = "120px Time New Roman";
+  ctx.textAlign = "center";
   ctx.fillStyle = color; // Default text color (can be customized)
   ctx.fillText(text, canvas.width / 2, canvas.height / 2); // Drawing text on canvas
 }
