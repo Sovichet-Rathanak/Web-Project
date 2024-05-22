@@ -65,18 +65,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ctx.textBaseline = "middle";
     ctx.fillStyle = color;
     // Draw text in the middle of the canvas
-    ctx.fillText(text, x, canvas.height / 2 / window.devicePixelRatio);
+    ctx.fillText(text, x, canvas.height / 2 / window.devicePixelRatio); 
   }
 
-  var speed = 10; // !!changeable base on user input
+  var speed = 3; // !!changeable base on user input
+  var input_width = ctx.measureText(userInput.value).width;
+
   //Animating text
-  function animate() {
+  function scroll_animation() {
     // Looping animationn
-    requestAnimationFrame(animate); //loop
+    requestAnimationFrame(scroll_animation); //loop
 
     // Wrap around if x exceeds canvas width
     if (x > canvas.width) {
-      x = -ctx.measureText(userInput.value).width;
+      x = -input_width;
     }
 
     x += speed;
@@ -84,5 +86,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     updateCanvas(userInput.value, textColor.value); //draw
   }
 
-  animate();
+  function bounce_sideway(){
+    requestAnimationFrame(bounce_sideway);
+
+    if(x + input_width > canvas.width || x < 0){
+      speed = -speed;
+    }
+
+    x += speed;
+
+    updateCanvas(userInput.value, textColor.value);
+  }
+
+  // bounce_sideway();
+  scroll_animation();
 });
