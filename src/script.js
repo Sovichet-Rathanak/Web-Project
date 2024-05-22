@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       document.exitFullscreen();
     }
   }
-  
+
   //Clearing canva
-  function clear(){
+  function clear() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 
@@ -74,7 +74,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Looping animationn
     requestAnimationFrame(animate); //loop
 
+    // Wrap around if x exceeds canvas width
+    if (x > canvas.width) {
+      x = -ctx.measureText(userInput.value).width;
+    }
+
     x += speed;
+    clear();
     updateCanvas(userInput.value, textColor.value); //draw
   }
 
