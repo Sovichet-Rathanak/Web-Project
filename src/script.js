@@ -68,8 +68,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ctx.fillText(text, x, canvas.height / 2 / window.devicePixelRatio); 
   }
 
-  var speed = 3; // !!changeable base on user input
-  var input_width = ctx.measureText(userInput.value).width;
+  var speed = 15; // !!changeable base on user 1input
 
   //Animating text
   function scroll_animation() {
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // Wrap around if x exceeds canvas width
     if (x > canvas.width) {
-      x = -input_width;
+      x = 0;
     }
 
     x += speed;
@@ -89,15 +88,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
   function bounce_sideway(){
     requestAnimationFrame(bounce_sideway);
 
-    if(x + input_width > canvas.width || x < 0){
+    if(x + ctx.measureText(userInput.value).width/2 >= canvas.width || x  <= ctx.measureText(userInput.value).width/2 ){
       speed = -speed;
     }
 
     x += speed;
+    console.log("bs: " + x)
 
     updateCanvas(userInput.value, textColor.value);
+
   }
 
-  // bounce_sideway();
-  scroll_animation();
+  bounce_sideway();
+  // scroll_animation();
 });
