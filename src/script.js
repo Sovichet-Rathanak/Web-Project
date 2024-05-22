@@ -1,55 +1,82 @@
-// Select the color picker element and the outerbox element
-const boardColorPicker = document.getElementById("TCP");
-const outerbox = document.querySelector(".outerbox");
-// Canvas
-const canvas = document.getElementById("led-text");
-const ctx = canvas.getContext("2d");
-const ratio = window.devicePixelRatio;
-canvas.width = Math.floor(800 * ratio);
-canvas.height = Math.floor(800 * ratio);
-ctx.scale(ratio, ratio);
-//Full Screen 
-const FSbutton = document.querySelector('.FSbutton');
-
-// Add an event listener to the color picker input
-boardColorPicker.addEventListener("input", () => {
-  // Change the background color of the outerbox based on the selected color
-  outerbox.style.backgroundColor = boardColorPicker.value;
-});
-
-//Add event listener to Full Screen Button
-FSbutton.addEventListener('click', function(){
-  toggleFullScreen(canvas);
-})
-
 document.addEventListener("DOMContentLoaded", (event) => {
+  // Select elements
   const userInput = document.getElementById("Input");
   const textColor = document.getElementById("ColorPicker");
-  console.log(textColor);
-  // Event listener for input field
+  const boardColorPicker = document.getElementById("TCP");
+  const outerbox = document.querySelector(".outerbox");
+  const canvas = document.getElementById("led-text");
+  const ctx = canvas.getContext("2d");
+  const FSbutton = document.querySelector(".FSbutton");
+
+  // Set up canvas
+  function resizeCanvas() {
+    const ratio = window.devicePixelRatio;
+    canvas.width = outerbox.clientWidth * ratio;
+    canvas.height = outerbox.clientHeight * ratio;
+    ctx.scale(ratio, ratio);
+    updateCanvas(userInput.value, textColor.value);
+  }
+
+  // Initialize canvas size and listen for window resize events
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  // Add event listener to the color picker input
+  boardColorPicker.addEventListener("input", () => {
+    outerbox.style.backgroundColor = boardColorPicker.value;
+  });
+
+  // Add event listener to the Full Screen button
+  FSbutton.addEventListener("click", function () {
+    toggleFullScreen();
+  });
+
+  // Add event listeners for user input and text color change
   userInput.addEventListener("input", () => {
     updateCanvas(userInput.value, textColor.value);
   });
+
   textColor.addEventListener("input", () => {
     updateCanvas(userInput.value, textColor.value);
   });
-});
 
-//FullScreen Function
-function toggleFullScreen(canvas) {
-  if (!document.fullscreenElement) {
-    canvas.requestFullscreen();
-  } else {
-    document.exitFullscreen();
+  // Fullscreen toggle function
+  function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+      outerbox.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
   }
-}
+  
+  //Clearing canva
+  function clear(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
 
-function updateCanvas(text, color) {
-  // Clear the canvas before drawing new text
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // Set font properties (optional, you can customize this)
-  ctx.font = "120px Time New Roman";
-  ctx.textAlign = "center";
-  ctx.fillStyle = color; // Default text color (can be customized)
-  ctx.fillText(text, canvas.width / 2, canvas.height / 2); // Drawing text on canvas
-}
+  var x = canvas.width / 2 / window.devicePixelRatio;
+
+  // Draw and update the canva
+  function updateCanvas(text, color) {
+    clear();
+    // Set font properties
+    ctx.font = "120px 'Times New Roman'"; //  !!changeable base on user input
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = color;
+    // Draw text in the middle of the canvas
+    ctx.fillText(text, x, canvas.height / 2 / window.devicePixelRatio);
+  }
+
+  var speed = 10; // !!changeable base on user input
+  //Animating text
+  function animate() {
+    // Looping animationn
+    requestAnimationFrame(animate); //loop
+
+    x += speed;
+    updateCanvas(userInput.value, textColor.value); //draw
+  }
+
+  animate();
+});
