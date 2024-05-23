@@ -55,20 +55,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   var x = canvas.width / 2 / window.devicePixelRatio;
+  var y = canvas.height / 2 / window.devicePixelRatio;
 
   // Draw and update the canva
   function updateCanvas(text, color) {
-    clear();
+    // clear();
     // Set font properties
     ctx.font = "120px 'Times New Roman'"; //  !!changeable base on user input
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = color;
     // Draw text in the middle of the canvas
-    ctx.fillText(text, x, canvas.height / 2 / window.devicePixelRatio); 
+    ctx.fillText(text, x, y); 
+    console.log("HELLO from mars")
+      console.log(canvas.height)
+      console.log(ctx.measureText(userInput.value).height/2)
   }
 
-  var speed = 15; // !!changeable base on user 1input
+  var speedX = 15; // !!changeable base on user 1input
+  var speedY = 15;
+
+  
 
   //Animating text
   function scroll_animation() {
@@ -76,11 +83,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     requestAnimationFrame(scroll_animation); //loop
 
     // Wrap around if x exceeds canvas width
-    if (x > canvas.width) {
-      x = 0;
+    if (x -(ctx.measureText(userInput.value).width)/2> canvas.width) {
+      x = -(canvas.width + (ctx.measureText(userInput.value).width))/2;
     }
-
-    x += speed;
+    x += speedX;
+    
     clear();
     updateCanvas(userInput.value, textColor.value); //draw
   }
@@ -89,12 +96,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
     requestAnimationFrame(bounce_sideway);
 
     if(x + ctx.measureText(userInput.value).width/2 >= canvas.width || x  <= ctx.measureText(userInput.value).width/2 ){
-      speed = -speed;
+      speedX = -speedX;
+  
+    }
+    if (y -(ctx.measureText("M").width/2) > canvas.height || y  <= ctx.measureText("M").width/2 ) {
+      speedY = -speedY;
+      console.log("HELLO")
+      console.log(canvas.height)
+      console.log(y)
+      console.log(y -(ctx.measureText(userInput.value).height)/2)
+
     }
 
-    x += speed;
-    console.log("bs: " + x)
+    y += speedY;
+    x += speedX;
 
+    // console.log("bs: " + x)
+    clear();
     updateCanvas(userInput.value, textColor.value);
 
   }
