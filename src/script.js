@@ -72,10 +72,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
       console.log(ctx.measureText(userInput.value).height/2)
   }
 
+<<<<<<< HEAD
   var speedX = 15; // !!changeable base on user 1input
   var speedY = 15;
 
   
+=======
+  let speed_x = 15; // !!changeable base on user 1input
+>>>>>>> 78213a7fc22b4738f1cbd569d6f3d2689f841e65
 
   //Animating text
   function scroll_animation() {
@@ -83,16 +87,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
     requestAnimationFrame(scroll_animation); //loop
 
     // Wrap around if x exceeds canvas width
+<<<<<<< HEAD
     if (x -(ctx.measureText(userInput.value).width)/2> canvas.width) {
       x = -(canvas.width + (ctx.measureText(userInput.value).width))/2;
     }
     x += speedX;
     
+=======
+    if (x > canvas.width + ctx.measureText(userInput.value).width) {
+      x = - (canvas.width + ctx.measureText(userInput.value).width)/3;
+      console.log(canvas.width + ctx.measureText(userInput.value).width);
+      console.log(x);
+    }   //changes
+
+    x += speed_x;
+>>>>>>> 78213a7fc22b4738f1cbd569d6f3d2689f841e65
     clear();
     updateCanvas(userInput.value, textColor.value); //draw
   }
 
   function bounce_sideway(){
+<<<<<<< HEAD
     requestAnimationFrame(bounce_sideway);
 
     if(x + ctx.measureText(userInput.value).width/2 >= canvas.width || x  <= ctx.measureText(userInput.value).width/2 ){
@@ -115,8 +130,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     clear();
     updateCanvas(userInput.value, textColor.value);
 
+=======
+    updateCanvas(userInput.value, textColor.value);
+    
+    if(x + ctx.measureText(userInput.value).width*2 >= canvas.width || x  <= ctx.measureText(userInput.value).width/2 ){
+      speed_x = -speed_x;
+    }
+
+    x += speed_x;
+    requestAnimationFrame(bounce_sideway);
+>>>>>>> 78213a7fc22b4738f1cbd569d6f3d2689f841e65
   }
 
-  bounce_sideway();
-  // scroll_animation();
+  // bounce_sideway();
+  scroll_animation();
 });
