@@ -35,7 +35,7 @@
             <li class="font">
               <span>Pick Your Font: </span>
               <select id="FontSelector">
-                <option value="" class="default-option" disabled selected>
+                <option value="empty" class="default-option" disabled selected>
                   Choose A Font
                 </option>
                 <option class="danfo" value="danfo">Danfo</option>
@@ -48,7 +48,16 @@
               <li>Background Color:</li>
               <input type="color" id="TCP" class="color-bg" value="#000000" />
             </div>
-            <li>Text Animation:</li>
+            <li class="animation">
+              <span>Text Animation:</span>
+              <select id="AnimSelector" onchange="ani_select()">
+                <option value="empty" class="default-option" disabled selected>
+                  Choose An Animation
+                </option>
+                <option value="scroll">Scroll</option>
+                <option value="float">Float</option>
+              </select>
+            </li>
             <li>Blink Speed:</li>
             <li>Animation Speed:</li>
             <li>Background Animation:</li>
@@ -62,6 +71,6 @@
         <a href="">User Guide</a>/<a href="">Theme</a>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
