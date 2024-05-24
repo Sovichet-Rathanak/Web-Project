@@ -7,6 +7,9 @@ const canvas = document.getElementById("led-text");
 const ctx = canvas.getContext("2d");
 const FSbutton = document.querySelector(".FSbutton");
 
+var x = canvas.width / 2 / window.devicePixelRatio;
+var y = canvas.height / 2 / window.devicePixelRatio;
+
 // Set up canvas
 function resizeCanvas() {
   const ratio = window.devicePixelRatio;
@@ -53,12 +56,12 @@ function clear() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-var x = canvas.width / 2 / window.devicePixelRatio;
-var y = canvas.height / 2 / window.devicePixelRatio;
-
 // Draw and update the canva
 function updateCanvas(text, color) {
-  // clear();
+  x = canvas.width / 2 / window.devicePixelRatio; 
+  y = canvas.height / 2 / window.devicePixelRatio;
+
+  clear();
   // Set font properties
   ctx.font = "120px 'Times New Roman'"; //  !!changeable base on user input
   ctx.textAlign = "center";
@@ -68,7 +71,9 @@ function updateCanvas(text, color) {
   ctx.fillText(text, x, y);
 }
 
-var speed = 10; // !!changeable base on user 1input
+//get speed value from user input
+document.getElementById("anim_speed").add
+
 var speedX;
 var speedY;
 
@@ -76,6 +81,7 @@ speedX = speedY = speed;
 
 //Animating text
 function scroll_animation() {
+  clear();
   // Looping animationn
   requestAnimationFrame(scroll_animation); //loop
 
@@ -115,9 +121,7 @@ function float() {
   y += speedY;
   x += speedX;
 
-  // console.log("bs: " + x)
   clear();
-  console.log(randomcolor());
   updateCanvas(userInput.value, textColor.value);
 }
 
@@ -129,13 +133,13 @@ function ani_select() {
   switch (animmValue) {
     case "float":
       float();
+      console.log(animmValue);
       break;
-    case "scroll":
+    case "scroll":  
       scroll_animation();
+      console.log(animmValue);
       break;
     default:
       break;
   }
 }
-
-updateCanvas(userInput.value, textColor.value);
