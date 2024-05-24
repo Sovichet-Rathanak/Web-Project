@@ -25,6 +25,7 @@ body {
 
 /*outer box*/
 .outerbox {
+  position: relative; /* Changed to relative */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,12 +36,20 @@ body {
   border-radius: 2rem;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-
+  overflow: hidden; /* Added to prevent overflow */
 }
 
 /*LED Text*/
 #led-text {
+  position: absolute; /* Added to overlay on top of background canvas */
   color: black;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background Canvas */
+#backgroundCanvas {
+  position: absolute; /* Added to ensure it fills the outer box */
   width: 100%;
   height: 100%;
 }
@@ -139,40 +148,6 @@ body {
   display: none; /*hide checkbox */
 }
 
-/*Checked, Unchecked toggle*/
-/* input:checked ~ label{  
-    display: block;
-    border: 1px solid black;
-    border-radius: .3rem .3rem 0rem 0rem;
-    transition: max-width .4s ease-out;
-    max-width: auto;
-}
-
-input:checked ~ .CustomContent{  
-    display: block;
-    max-height: 500px;
-    border: 1px solid black;
-    border-top: 0px;
-    transition: max-height .5s ease-in-out;
-    transition-delay: .4s;
-    max-width: auto;
-}
-
-input:not(:checked) ~ label{
-    display: block;
-    transition: all 1s ease-in-out;
-    max-width: 100px;
-    transition-delay: 1s;
-}
-
-input:not(:checked) ~ .CustomContent{
-    max-height: 0px;
-    border-top: 0px;
-    border: 1px solid #000000;
-    opacity: 0;
-    max-width: 0;
-} */
-
 /*Content*/
 /*Color Picker*/
 .color {
@@ -218,7 +193,7 @@ input:not(:checked) ~ .CustomContent{
   border-bottom: 1.5px solid black;
   padding: 0.2rem;
   cursor: pointer;
-  width: 115px;
+  width: 100px;
 }
 
 #FontSelector:focus {
@@ -244,45 +219,6 @@ input:not(:checked) ~ .CustomContent{
   font-family: "IBM Plex Mono", monospace;
 }
 
-/* Text Animation */
-.animation{
-  margin-bottom: 10px;
-}
-
-#AnimSelector{
-  border: none;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border-bottom: 1.5px solid black;
-  padding: 0.2rem;
-  cursor: pointer;
-  width: 140px;
-}
-
-#AnimSelector:focus {
-  outline: none;
-  border-bottom: 2px solid skyblue;
-}
-
-#anim_speed{
-  margin-bottom: 10px;
-  border: none;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border-bottom: 1.5px solid black;
-  padding: 0.2rem;
-  width: 70px;
-}
-
-#anim_speed:focus{
-  outline: none;
-  border-bottom: 2px solid skyblue;
-}
-
 footer {
   position: static;
   display: flex;
@@ -295,6 +231,7 @@ footer {
 
 .SBC {
   display: flex;
+  margin-bottom: 10px;
 }
 
 #TCP {
@@ -320,3 +257,22 @@ footer {
   border-radius: 0.3rem;
 }
 
+.TA {
+  margin-bottom: 20px;
+}
+
+.BS {
+  margin-bottom: 20px;
+}
+
+.AS {
+  margin-bottom: 20px;
+}
+
+.BA {
+  margin-bottom: 20px;
+}
+
+.FS {
+  margin-bottom: 20px;
+}
