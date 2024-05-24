@@ -49,9 +49,22 @@
               <li>Background Color:</li>
               <input type="color" id="TCP" class="color-bg" value="#000000" />
             </div>
-            <li class="TA">Text Animation:</li>
+            <li class="animation">
+              <span>Text Animation:</span>
+              <select id="AnimSelector" onchange="ani_select()">
+                <option value="empty" class="default-option" disabled selected>
+                  Choose An Animation
+                </option>
+                <option value="scroll">Scroll</option>
+                <option value="float">Float</option>
+              </select>
+            </li>
+
             <li class="BS">Blink Speed:</li>
-            <li class="AS">Animation Speed:</li>
+            <li class="AS">
+              Animation Speed:
+              <input type="number" name="" id="speed" min="1" value="1" />
+            </li>
             <li class="BA">Background Animation:</li>
             <li class="FS">Font Size:</li>
           </ul>
