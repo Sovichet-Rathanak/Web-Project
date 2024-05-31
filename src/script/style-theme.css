@@ -38,8 +38,8 @@
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* height: 91rem; */
-    width: 91rem;
+    height: 38vh;
+    width: 100rem;
 
   }
   
