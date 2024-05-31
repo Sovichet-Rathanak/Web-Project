@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-    <!-- New for theme -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126815322-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'UA-126815322-3');
-    </script>
-    <!-- Break new for theme -->
-
     <!-- Standard form -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -106,7 +92,11 @@
                 <option value="flow" id="F">Flow Field</option>
               </select>
             </li>
-            <li class="FS">Font Size:</li>
+            <li class="FS">
+              <span>Font Size</span>
+              <input type="number" name="" id="size" min="100" value="100"/>
+            </li>
+            </li>
           </ul>
         </div>
       </div>
@@ -114,7 +104,7 @@
     <!-- themes function  -->
     <div id="theme-center" class="hidden"> 
       <!-- grayscale    -->
-      <div class="back_themeArea">
+      <div class="back_themeArea">  
         <div id="left-wing" onClick="hideThemeCenter();">< back</div>
         <div id="theme-area"></div>
       </div> 

@@ -16,10 +16,8 @@ const userSpeed = document.getElementById("speed");
 const speedSlider = document.getElementById("slispeed");
 const speedValue = document.getElementById("speedValue");
 const startButton = document.getElementById("startBlinking");
-let blinkInterval;
 
-let speedX = parseFloat(userSpeed.value);
-let speedY = parseFloat(userSpeed.value);
+const fontsize = document.getElementById("size");
 
 // Event listener for speed input
 userSpeed.addEventListener("input", function () {
@@ -44,7 +42,7 @@ function resizeCanvas() {
   x = textCanvas.width / 2 / window.devicePixelRatio;
   y = textCanvas.height / 2 / window.devicePixelRatio;
 
-  updateCanvas(userInput.value, textColor.value, fontSelector.value); // New : add fontSelector.value
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : add fontSelector.value
 }
 
 // Initialize canvas size and listen for window resize events
@@ -63,15 +61,15 @@ FSbutton.addEventListener("click", function () {
 
 // Add event listeners for user input and text color change
 userInput.addEventListener("input", () => {
-  updateCanvas(userInput.value, textColor.value, fontSelector.value); // New : Add fontSelector.value
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : Add fontSelector.value
 });
 
 textColor.addEventListener("input", () => {
-  updateCanvas(userInput.value, textColor.value, fontSelector.value); // New : Add fontSelector.value
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : Add fontSelector.value
 });
 
 fontSelector.addEventListener("change", () => {
-  updateCanvas(userInput.value, textColor.value, fontSelector.value); // New: add font selector
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New: Add font selector
 });
 
 // Fullscreen toggle function
@@ -83,6 +81,10 @@ function toggleFullScreen() {
   }
 }
 
+fontsize.addEventListener("input", function(){
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value);// New: Add font size 
+});
+
 // Clearing canvas
 function clear() {
   textCtx.clearRect(0, 0, textCanvas.width, textCanvas.height);
@@ -93,10 +95,10 @@ var y = textCanvas.height / 2 / window.devicePixelRatio;
 
 // Draw and update the canvas
 // New : add font in condition
-function updateCanvas(text, color, font) {
+function updateCanvas(text, color, font, size) {
   clear();
   // Set font properties
-  textCtx.font = `120px '${font}'`; //  !!changeable base on user input     // New : change ("120px 'Times New Roman'") to  `120px '${font}'`
+  textCtx.font = `${size}px '${font}'`; //  !!changeable base on user input     // New : change ("120px 'Times New Roman'") to  `120px '${font}'`
   textCtx.textAlign = "center";
   textCtx.textBaseline = "middle";
   textCtx.fillStyle = color;
@@ -119,9 +121,7 @@ function scroll_animation() {
   clear();
 
 
-  updateCanvas(userInput.value, textColor.value, fontSelector.value); // draw  // New: add fontSelector.value
-
-  
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // draw  // New: add fontSelector.value
 }
 
 function float_anim() {
@@ -152,7 +152,7 @@ function float_anim() {
 
   // console.log("bs: " + x)
   clear();
-  updateCanvas(userInput.value, textColor.value, fontSelector.value); // New : add fontSelector.value
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : add fontSelector.value
 }
 
 var requestID;
@@ -212,7 +212,6 @@ function rect_animation() {
 //Create Particle
 class Particle {
   constructor(effect) {
-    this.timer--;
     this.effect = effect;
     this.x = Math.floor(Math.random() * this.effect.width);
     this.y = Math.floor(Math.random() * this.effect.height);
@@ -289,7 +288,7 @@ class Effect {
     this.width = width;
     this.height = height;
     this.particles = [];
-    this.numberOfParticles = 1400;
+    this.numberOfParticles = 1000;
     this.cellsize = 20;
     this.rows;
     this.cols;
@@ -334,12 +333,7 @@ const effect = new Effect(backgroundCanvas.width, backgroundCanvas.height);
 console.log(effect);
 
 function flow_field() {
-  backgroundCtx.clearRect(
-    0,
-    0,
-    backgroundCanvas.width,
-    backgroundCanvas.height
-  );
+  backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
   effect.render(backgroundCtx);
   requestAnimationFrame(flow_field);
 }
@@ -379,19 +373,17 @@ function bg_select() {
   }
 }
 
-function blinkText() {
-  const text = userInput.value;
-  const speed = parseInt(speedSlider.value, 10);
+let blinkInterval;
+let speedX = parseFloat(userSpeed.value);
+let speedY = parseFloat(userSpeed.value);
 
-  if (!text) {
-    alert('Please enter some text to blink');
-    return;
-  }
+function blinkText() {
+  const speed = parseInt(speedSlider.value, 10);
 
   clearInterval(blinkInterval);
   blinkInterval = setInterval(() => {
     textCtx.globalAlpha = textCtx.globalAlpha === 1 ? 0 : 1;
-    updateCanvas(userInput.value, textColor.value, fontSelector.value);
+    updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value);
   }, speed);
 }
 

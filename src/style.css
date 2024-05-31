@@ -394,6 +394,23 @@ footer {
   border-bottom: 2px solid skyblue;
 }
 
+#size {
+  margin-bottom: 10px;
+  border: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border-bottom: 1.5px solid black;
+  padding: 0.2rem;
+  width: 70px;
+}
+
+#size:focus {
+  outline: none;
+  border-bottom: 2px solid skyblue;
+}
+
 .FS {
   margin-bottom: 20px;
 }
