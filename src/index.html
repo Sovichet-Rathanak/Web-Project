@@ -82,6 +82,7 @@
                 </option>
                 <option value="scroll">Scroll</option>
                 <option value="float">Float</option>
+                <option value="reset" style="font-weight: bold">Reset</option>
               </select>
             </li>
 
@@ -90,7 +91,16 @@
               Animation Speed:
               <input type="number" name="" id="speed" min="1" value="1" />
             </li>
-            <li class="BA">Background Animation:</li>
+            <li class="BA">
+              <span>Background Animation:</span>
+              <select id="BGSelector" onchange="bg_select()">
+                <option value="empty" class="default-option" disabled selected>
+                  Choose An Animation
+                </option>
+                <option value="rect">Rectangles</option>
+                <option value="flow">Flow Field</option>
+              </select>
+            </li>
             <li class="FS">Font Size:</li>
           </ul>
         </div>
