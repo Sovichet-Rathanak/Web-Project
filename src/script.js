@@ -363,7 +363,6 @@ function ani_select() {
   }
 }
 
-<<<<<<< HEAD
 //background selector
 function bg_select() {
   var bgValue = document.getElementById("BGSelector").value;
@@ -380,7 +379,6 @@ function bg_select() {
   }
 }
 
-=======
 function blinkText() {
   const text = userInput.value;
   const speed = parseInt(speedSlider.value, 10);
@@ -404,5 +402,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startButton.addEventListener('click', blinkText);
 });
->>>>>>> blink_animation
+
+
 

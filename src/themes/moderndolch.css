@@ -22,21 +22,24 @@ body {
 
 .dropdown-menu label{
   color: #25cdc5;;
-  border-color: #25cdc5;;
+  border-color: #25cdc5;
 }
 
 .CustomContent {
   color: #25cdc5;;
-  border-color: #25cdc5;;
+  border-color: #25cdc5;
 }
 #FontSelector {
-  color: #25cdc5;;
+  color: #25cdc5;
 }
 #AnimSelector {
-  color: #25cdc5;;
+  color: #25cdc5;
 }
 #speed {
-  color: #25cdc5;;
+  color: #25cdc5;
+}
+#BGSelector {
+  color: #25cdc5;
 }
 /* End  */
 #left-wing {

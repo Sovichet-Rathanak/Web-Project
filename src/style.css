@@ -386,6 +386,7 @@ footer {
   border-bottom: 1.5px solid black;
   padding: 0.2rem;
   width: 140px;
+  color: white ;
 }
 
 #BGSelector:focus {
@@ -396,10 +397,34 @@ footer {
 .FS {
   margin-bottom: 20px;
 }
+.danfo {
+  color: black;
+}
+.jaro {
+  color: black;
+}
+.asap{
+  color: black;
+}
+.ibm {
+  color: black;
+}
+#scroll {
+  color: black;
+}
+#float {
+  color: black;
+}
+#reset {
+  color: black;
+}
+#R {
+  color: black;
+}
+#F {
+  color: black;
+}
 
-<<<<<<< HEAD
-
-=======
 #startBlinking {
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   border: none;
@@ -429,5 +454,8 @@ footer {
   display: none;
   margin-top: 20px;
 }
->>>>>>> blink_animation
+
+
+
+
 
