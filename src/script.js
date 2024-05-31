@@ -1,6 +1,8 @@
 // Select elements
 const userInput = document.getElementById("Input");
+
 const textColor = document.getElementById("ColorPicker");
+
 const boardColorPicker = document.getElementById("TCP");
 const outerbox = document.querySelector(".outerbox");
 const textCanvas = document.getElementById("led-text");
@@ -8,9 +10,16 @@ const textCtx = textCanvas.getContext("2d");
 const backgroundCanvas = document.getElementById("backgroundCanvas");
 const backgroundCtx = backgroundCanvas.getContext("2d");
 const FSbutton = document.querySelector(".FSbutton");
-
-const fontSelector = document.getElementById("FontSelector"); // New : add font selector
+const fontSelector = document.getElementById("FontSelector"); 
 const userSpeed = document.getElementById("speed");
+
+const speedSlider = document.getElementById("slispeed");
+const speedValue = document.getElementById("speedValue");
+const startButton = document.getElementById("startBlinking");
+let blinkInterval;
+
+let speedX = parseFloat(userSpeed.value);
+let speedY = parseFloat(userSpeed.value);
 
 // Event listener for speed input
 userSpeed.addEventListener("input", function () {
@@ -18,8 +27,8 @@ userSpeed.addEventListener("input", function () {
   speedY = parseFloat(userSpeed.value);
 });
 
-let speedX = parseFloat(userSpeed.value);
-let speedY = parseFloat(userSpeed.value);
+// let speedX = parseFloat(userSpeed.value);
+// let speedY = parseFloat(userSpeed.value);
 
 // Set up canvas sizes
 function resizeCanvas() {
@@ -112,7 +121,11 @@ function scroll_animation() {
   x += speedX;
 
   clear();
+
+
   updateCanvas(userInput.value, textColor.value, fontSelector.value); // draw  // New: add fontSelector.value
+
+  
 }
 
 function float_anim() {
@@ -213,3 +226,28 @@ function ani_select() {
       break;
   }
 }
+
+function blinkText() {
+  const text = userInput.value;
+  const speed = parseInt(speedSlider.value, 10);
+
+  if (!text) {
+    alert('Please enter some text to blink');
+    return;
+  }
+
+  clearInterval(blinkInterval);
+  blinkInterval = setInterval(() => {
+    textCtx.globalAlpha = textCtx.globalAlpha === 1 ? 0 : 1;
+    updateCanvas(userInput.value, textColor.value, fontSelector.value);
+  }, speed);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  speedSlider.addEventListener('input', () => {
+    speedValue.textContent = speedSlider.value;
+  });
+
+  startButton.addEventListener('click', blinkText);
+});
+

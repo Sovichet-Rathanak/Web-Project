@@ -60,7 +60,12 @@
               </select>
             </li>
 
-            <li class="BS">Blink Speed:</li>
+            <li class="BS">
+              Blink Speed: <input type="range" id="slispeed" min="100" max="2000" step="100" value="500">
+            <span id="speedValue">500</span>ms <button id="startBlinking">Blink</button>
+            <br><br>
+            <p id="blinkText"></p>
+
             <li class="AS">
               Animation Speed:
               <input type="number" name="" id="speed" min="1" value="1" />
