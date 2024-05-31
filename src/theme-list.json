@@ -1,0 +1,12 @@
+{
+  "light": {
+    "background": "#ffffff",
+    "color": "#000000",
+    "customHTML": "<b>Light Theme</b>"
+  },
+  "dark": {
+    "background": "#000000",
+    "color": "#ffffff",
+    "customHTML": "<b>Dark Theme</b>"
+  }
+}

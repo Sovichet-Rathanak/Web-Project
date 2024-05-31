@@ -1,0 +1,88 @@
+/*
+Colors inspired by GMK Denim by T0mb3ry
+https://www.originativeco.com/products/denim
+red: #a62700
+light blue: #687796
+dark blue: #454f63
+brown: #b8835f
+sand: #e3d5b9
+*/
+
+body {
+  background: #454f63;
+}
+
+#header {
+  color: #b8835f;
+}
+
+/* Change color for our function  */
+.title {
+  color: #b8835f;
+}
+
+.dropdown-menu label{
+  color: #b8835f;
+  border-color: #b8835f;
+}
+
+.CustomContent {
+  color: #b8835f;
+  border-color: #b8835f;
+}
+#FontSelector {
+  color: #b8835f;
+}
+#AnimSelector {
+  color: #b8835f;
+}
+#speed {
+  color: #b8835f;
+}
+/* End  */
+
+#left-wing {
+  color: #e3d5b9;
+}
+
+#right-wing {
+  color: #e3d5b9;
+}
+
+#typing-area, #theme-area {
+  background: #687796;
+}
+
+#text-display {
+  color: #e3d5b9;
+}
+
+#input-field {
+  background: #454f63;
+  color: #e3d5b9;
+}
+
+#input-field.wrong {
+  background: rgba(198, 38, 46, 0.3);
+}
+
+#redo-button {
+  background: #b8835f;
+  color: #a62700;
+}
+
+#footer {
+  color: #b8835f;
+}
+
+.highlight {
+  color: #b8835f;
+}
+
+.correct {
+  color: #a6a6a8;
+}
+
+.wrong {
+  color: #a62700;
+}

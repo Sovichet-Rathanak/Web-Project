@@ -1,0 +1,80 @@
+body {
+  background: #187ac5;
+}
+
+#header {
+  color: #e5e8e6;
+}
+
+/* Change color for our function  */
+.title {
+  color: #e5e8e6;
+}
+
+.dropdown-menu label{
+  color: #e5e8e6;
+  border-color: #e5e8e6;
+}
+
+.CustomContent {
+  color: #e5e8e6;
+  border-color: #e5e8e6;
+}
+#FontSelector {
+  color: #e5e8e6;
+}
+#AnimSelector {
+  color: #e5e8e6;
+}
+#speed {
+  color: #e5e8e6;
+}
+/* End  */
+
+#left-wing {
+  color: #e5e8e6;
+}
+
+#right-wing {
+  color: #e5e8e6;
+}
+
+#typing-area,
+#theme-area {
+  background: #f7f7f7;
+}
+
+#text-display {
+  color: #575d5e;
+}
+
+#input-field {
+  background: #5A5E61;
+  color: #e5e8e6;
+}
+
+#input-field.wrong {
+  background: #c43932;
+  color: #e5e8e6;
+}
+
+#redo-button {
+  background: #136EA3;
+  color: #ffffff;
+}
+
+#footer {
+  color: #e5e8e6;
+}
+
+.highlight {
+  color: #136EA3;
+}
+
+.correct {
+  color: #99a4a6;
+}
+
+.wrong {
+  color: #c43932;
+}

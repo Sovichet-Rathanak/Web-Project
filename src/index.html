@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <!-- New for theme -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126815322-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-126815322-3');
+    </script>
+
+    <!-- Standard form -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LED Textboard</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>LED Text Board</title>
+    <meta name="description" content="typings.gg is a sleek and modern typing test website. it support many custom themes" />
+    
+    <!-- link 2 file css of theme  -->
     <link rel="stylesheet" href="style.css" />
+    <link id="theme" rel="stylesheet" href="themes/light.css" />
+    <link rel="stylesheet" href="script/style-theme.css">
+
   </head>
   <body>
     <header><h1 class="title">Text Board</h1></header>
@@ -32,7 +53,7 @@
             <li class="color">
               <span>Pick Your Color: </span>
               <input type="color" id="ColorPicker" value="#FFF000" />
-            </li>
+            </li>  
             <li class="font">
               <span>Pick Your Font: </span>
               <select id="FontSelector">
@@ -71,11 +92,18 @@
         </div>
       </div>
     </main>
-    <footer>
-      <div class="guide_theme">
-        <a href="">User Guide</a>/<a href="">Theme</a>
-      </div>
-    </footer>
+    <div id="theme-center" class="hidden">   
+      <div class="back_themeArea">
+        <div id="left-wing" onClick="hideThemeCenter();">< back</div>
+        <div id="theme-area"></div>
+      </div>  
+    </div>
+    <div id="footer">
+      <a href="https://github.com/briano1905/typings#typings" target="_blank" tabindex="3">User guide</a>/
+      <div id="show-themes"class="button" onClick="showThemeCenter();" tabindex="4">Themes</div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="script/script-theme.js"></script>
   </body>
 </html>

@@ -127,17 +127,12 @@ function float_anim() {
     }
     return color;
   }
-
-  if (
-    x + textCtx.measureText(userInput.value).width / 2 >= textCanvas.width ||
-    x <= textCtx.measureText(userInput.value).width / 2
-  ) {
+  
+  if (x + textCtx.measureText(userInput.value).width / 2 >= textCanvas.width ||x <= textCtx.measureText(userInput.value).width / 2) {
     speedX = -speedX;
     textColor.value = randomcolor(); //Update value if it touch the canva
   }
-  if (
-    y - textCtx.measureText("M").width / 2 >= textCanvas.height ||
-    y <= textCtx.measureText("M").width / 2
+  if (y - textCtx.measureText("M").width / 2 >= textCanvas.height ||y <= textCtx.measureText("M").width / 2
   ) {
     speedY = -speedY;
     textColor.value = randomcolor();
@@ -213,3 +208,5 @@ function ani_select() {
       break;
   }
 }
+
+

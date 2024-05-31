@@ -2,12 +2,80 @@
 @import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Danfo&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jaro:opsz@6..72&display=swap");
 
 body {
+/* 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
   font-family: "Roboto Mono", monospace;
+
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Roboto Mono;
+  line-height: 1.6rem; */
+
+  background: #5dcfb8; 
+  background-image: linear-gradient(
+    135deg,
+    #5dcfb8 23%,
+    #d73811 23%,
+    #d73811 46%,
+    #e16b06 46%,
+    #e16b06 69%,
+    #e1ba45 69%,
+    #e1ba45 92%,
+    #5b3217 92%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  font-family: "Roboto Mono", monospace;
+  margin: 0;
+  min-height: 100vh;
+  align-items: center;
+  line-height: 1.6rem;
 }
+
+/* Set background for website  */
+.title {
+  color: #ffffff;
+
+}
+.dropdown-menu label{
+  color: #ffffff;
+  border-color: #ffffff;
+  border: 1px solid white;
+
+}
+
+.CustomContent {
+  color: #ffffff;
+  border-color: #ffffff;
+  border: 1px solid white;
+
+}
+#FontSelector {
+  color: #ffffff;
+}
+#AnimSelector {
+  color: #ffffff;
+}
+#speed {
+  color: #ffffff;
+}
+#footer {
+  color: #ffffff;
+}
+#left-wing {
+  color: white;
+}
+
+/* End  */
 
 .container {
   display: flex;
@@ -61,6 +129,7 @@ body {
   align-items: center;
   width: 100%;
 }
+
 
 #Input {
   width: 91rem;
@@ -129,7 +198,7 @@ body {
 
 .dropdown-menu label {
   cursor: pointer;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 0.5rem;
   border-radius: 0.3rem 0.3rem 0 0;
   width: auto;
@@ -139,7 +208,7 @@ body {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-top: 0px;
   max-height: auto;
 }
@@ -300,13 +369,16 @@ footer {
 }
 
 .AS {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .BA {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .FS {
   margin-bottom: 20px;
 }
+
+
+
