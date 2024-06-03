@@ -10,7 +10,7 @@ const textCtx = textCanvas.getContext("2d");
 const backgroundCanvas = document.getElementById("backgroundCanvas");
 const backgroundCtx = backgroundCanvas.getContext("2d");
 const FSbutton = document.querySelector(".FSbutton");
-const fontSelector = document.getElementById("FontSelector"); 
+const fontSelector = document.getElementById("FontSelector");
 const userSpeed = document.getElementById("speed");
 
 const speedSlider = document.getElementById("slispeed");
@@ -21,12 +21,9 @@ const fontsize = document.getElementById("size");
 
 // Event listener for speed input
 userSpeed.addEventListener("input", function () {
-  speedX = parseFloat(userSpeed.value);
-  speedY = parseFloat(userSpeed.value);
+  speedY = speedX = parseFloat(userSpeed.value);
+  console.log(speedY);
 });
-
-// let speedX = parseFloat(userSpeed.value);
-// let speedY = parseFloat(userSpeed.value);
 
 // Set up canvas sizes
 function resizeCanvas() {
@@ -42,7 +39,12 @@ function resizeCanvas() {
   x = textCanvas.width / 2 / window.devicePixelRatio;
   y = textCanvas.height / 2 / window.devicePixelRatio;
 
-  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : add fontSelector.value
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  ); // New : add fontSelector.value
 }
 
 // Initialize canvas size and listen for window resize events
@@ -61,15 +63,30 @@ FSbutton.addEventListener("click", function () {
 
 // Add event listeners for user input and text color change
 userInput.addEventListener("input", () => {
-  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : Add fontSelector.value
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  ); // New : Add fontSelector.value
 });
 
 textColor.addEventListener("input", () => {
-  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : Add fontSelector.value
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  ); // New : Add fontSelector.value
 });
 
 fontSelector.addEventListener("change", () => {
-  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New: Add font selector
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  ); // New: Add font selector
 });
 
 // Fullscreen toggle function
@@ -81,8 +98,13 @@ function toggleFullScreen() {
   }
 }
 
-fontsize.addEventListener("input", function(){
-  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value);// New: Add font size 
+fontsize.addEventListener("input", function () {
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  ); // New: Add font size
 });
 
 // Clearing canvas
@@ -116,226 +138,96 @@ function scroll_animation() {
   if (x > textCanvas.width + textCtx.measureText(userInput.value).width / 2) {
     x = -(textCanvas.width + textCtx.measureText(userInput.value).width) / 2;
   }
+  
+  if (isNaN(speedX) || speedX === 0) {
+    speedX = 0; // or any other default non-zero value
+  }
+  
   x += speedX;
 
   clear();
-
-
-  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // draw  // New: add fontSelector.value
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  ); // draw  // New: add fontSelector.value
 }
 
 function float_anim() {
   requestAnimationFrame(float_anim);
 
-  //function to get random color
+  // Function to get a random color
   function randomcolor() {
-    let letters = "0123456789ABCDEF"; //Hexcode
+    let letters = "0123456789ABCDEF"; // Hex code
     let color = "#";
     for (let i = 0; i < 6; i++) {
       color += letters[Math.trunc(Math.random() * 16)];
     }
     return color;
   }
-  
-  if (x + textCtx.measureText(userInput.value).width / 2 >= textCanvas.width ||x <= textCtx.measureText(userInput.value).width / 2) {
+
+  // Get the width of the text
+  let textMetrics = textCtx.measureText(userInput.value);
+
+  let textWidth = textMetrics.width;
+  let textHeight =
+    textMetrics.actualBoundingBoxAscent + textMetrics.actualBoundingBoxDescent;
+
+  if (
+    x + textWidth / 2 >= textCanvas.width / window.devicePixelRatio ||
+    x - textWidth / 2 <= 0
+  ) {
     speedX = -speedX;
-    textColor.value = randomcolor(); //Update value if it touch the canva
+    textColor.value = randomcolor();
   }
-  if (y - textCtx.measureText("M").width / 2 >= textCanvas.height ||y <= textCtx.measureText("M").width / 2
+
+  if (
+    y + textHeight / 2 >= textCanvas.height / window.devicePixelRatio ||
+    y - textHeight / 2 <= 0
   ) {
     speedY = -speedY;
     textColor.value = randomcolor();
   }
 
+  if (isNaN(speedX) || speedX === 0) {
+    speedX = 0; 
+  }
+  if (isNaN(speedY) || speedY === 0) {
+    speedY = 0;
+  }
+  if (isNaN(x) || isNaN(y)) {
+    x = textCanvas.width / 2 / window.devicePixelRatio;
+    y = textCanvas.height / 2 / window.devicePixelRatio;
+  }
+
   y += speedY;
   x += speedX;
 
-  // console.log("bs: " + x)
   clear();
-  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); // New : add fontSelector.value
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  );
 }
 
-var requestID;
-function reset() {
+
+function animationreset() {
+  speedX = speedY = 0;
   x = textCanvas.width / 2 / window.devicePixelRatio;
   y = textCanvas.height / 2 / window.devicePixelRatio;
+  
+  document.getElementById('speed').value = 0;
 
-  requestID = undefined;
-  outerbox.requestAnimationFrame(requestID);
   clear();
-}
-
-// Create rectangles for background animation
-var rectangles = [];
-for (var i = 0; i < 50; i++) {
-  const boxWidth = 1;
-  const boxHeight = 6;
-  const randomNum = Math.random() * 50;
-
-  rectangles.push({
-    x: Math.random() * window.innerWidth,
-    y: -(boxHeight * randomNum),
-    width: boxWidth * randomNum,
-    height: boxHeight * randomNum,
-    color:
-      "#" +
-      Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, "0"),
-    speed: 1 + Math.random() * 3,
-  });
-}
-
-function rect_animation() {
-  backgroundCtx.clearRect(
-    0,
-    0,
-    backgroundCanvas.width,
-    backgroundCanvas.height
-  ); // Clear the background canvas
-
-  // Update and draw each rectangle
-  rectangles.forEach(function (rect) {
-    rect.y += rect.speed; // Update position
-    if (rect.y > backgroundCanvas.height) rect.y = -rect.height; // Reset position if it goes beyond the canvas
-
-    // Draw the rectangle
-    backgroundCtx.fillStyle = rect.color;
-    backgroundCtx.fillRect(rect.x, rect.y, rect.width, rect.height);
-  });
-
-  requestAnimationFrame(rect_animation); // Loop
-}
-
-//Flow Field//
-
-//Create Particle
-class Particle {
-  constructor(effect) {
-    this.effect = effect;
-    this.x = Math.floor(Math.random() * this.effect.width);
-    this.y = Math.floor(Math.random() * this.effect.height);
-    this.speedX;
-    this.speedY;
-    this.speedModifier = Math.floor(Math.random() * 5 + 1);
-    this.history = [{ x: this.x, y: this.y }];
-    this.maxlength = Math.random() * 200 + 10;
-    this.angle = 0;
-    this.timer = this.maxlength * 2;
-    this.colors = ["#cfecf7", "#a0d9ef", "#62c1e5", "#20a7db", "#1c96c5"];
-    this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
-  }
-
-  draw(backgroundCtx) {
-    // Specify which canvas we want to draw on
-    backgroundCtx.beginPath();
-
-    // Draw the particle
-    backgroundCtx.arc(this.x, this.y, 3, 0, 2 * Math.PI);
-    backgroundCtx.fillStyle = "white";
-    backgroundCtx.fill();
-    backgroundCtx.strokeStyle = this.color;
-    backgroundCtx.lineWidth = 1;
-    backgroundCtx.stroke();
-
-    // Draw the history path
-    backgroundCtx.beginPath();
-    backgroundCtx.moveTo(this.history[0].x, this.history[0].y);
-    for (let i = 1; i < this.history.length; i++) {
-      backgroundCtx.lineTo(this.history[i].x, this.history[i].y);
-    }
-    backgroundCtx.stroke();
-  }
-
-  update() {
-    this.timer--;
-
-    if (this.timer >= 0.5) {
-      let x = Math.floor(this.x / this.effect.cellsize);
-      let y = Math.floor(this.y / this.effect.cellsize);
-      let index = y * this.effect.cols + x;
-      this.angle = this.effect.flowField[index];
-
-      this.speedX = Math.cos(this.angle);
-      this.speedY = Math.sin(this.angle);
-      this.x += this.speedX * this.speedModifier;
-      this.y += this.speedY * this.speedModifier;
-
-      this.history.push({ x: this.x, y: this.y });
-
-      if (this.history.length > this.maxlength) {
-        this.history.shift();
-      }
-    } else if (this.history.length > 1) {
-      this.history.shift();
-    } else {
-      this.reset();
-    }
-  }
-
-  reset() {
-    this.x = Math.trunc(Math.random() * this.effect.width);
-    this.y = Math.trunc(Math.random() * this.effect.height);
-    this.history = [{ x: this.x, y: this.y }];
-    this.timer = this.maxlength * 2;
-  }
-}
-
-//Manage Effect
-class Effect {
-  constructor(width, height) {
-    //need to be aware of the canvas height to create particle
-    this.width = width;
-    this.height = height;
-    this.particles = [];
-    this.numberOfParticles = 1000;
-    this.cellsize = 20;
-    this.rows;
-    this.cols;
-    this.flowField = [];
-    this.curve = 3.4;
-    this.zoom = 0.055;
-    this.intial();
-  }
-
-  //Initialize our particles
-  intial() {
-    //use perlin noise to create flow field
-    this.rows = Math.floor(this.height / this.cellsize);
-    this.cols = Math.floor(this.width / this.cellsize);
-    this.flowField = [];
-
-    for (let y = 0; y <= this.rows; y++) {
-      for (let x = 0; x <= this.cols; x++) {
-        let angle =
-          (Math.cos(x * this.zoom) + Math.sin(y * this.zoom)) * this.curve;
-        this.flowField.push(angle);
-      }
-    }
-    // console.log(this.flowField);
-
-    //create particles on canvas
-    for (let i = 0; i <= this.numberOfParticles; i++) {
-      this.particles.push(new Particle(this));
-    }
-  }
-
-  //Render our particles onto our canvas
-  render(backgroundCtx) {
-    this.particles.forEach((particles) => {
-      particles.draw(backgroundCtx);
-      particles.update();
-    });
-  }
-}
-
-const effect = new Effect(backgroundCanvas.width, backgroundCanvas.height);
-console.log(effect);
-
-function flow_field() {
-  backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
-  effect.render(backgroundCtx);
-  requestAnimationFrame(flow_field);
+    updateCanvas(
+      userInput.value,
+      textColor.value,
+      fontSelector.value,
+      fontsize.value
+    ); 
 }
 
 //animation selector
@@ -350,7 +242,7 @@ function ani_select() {
       scroll_animation();
       break;
     case "reset":
-      reset();
+      animationreset();
       break;
     default:
       break;
@@ -383,17 +275,19 @@ function blinkText() {
   clearInterval(blinkInterval);
   blinkInterval = setInterval(() => {
     textCtx.globalAlpha = textCtx.globalAlpha === 1 ? 0 : 1;
-    updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value);
+    updateCanvas(
+      userInput.value,
+      textColor.value,
+      fontSelector.value,
+      fontsize.value
+    );
   }, speed);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  speedSlider.addEventListener('input', () => {
+  speedSlider.addEventListener("input", () => {
     speedValue.textContent = speedSlider.value;
   });
 
-  startButton.addEventListener('click', blinkText);
+  startButton.addEventListener("click", blinkText);
 });
-
-
-
