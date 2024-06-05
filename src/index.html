@@ -43,17 +43,18 @@
             <li class="color">
               <span>Pick Your Color: </span>
               <input type="color" id="ColorPicker" value="#FFF000" />
-            </li>  
+            </li>
             <li class="font">
               <span>Pick Your Font: </span>
               <select id="FontSelector">
-                <option value="" class="default-option" disabled selected>
-                  Choose A Font
-                </option>
-                <option class="danfo" value="danfo">Danfo</option>
-                <option class="jaro" value="jaro">Jaro</option>
-                <option class="asap" value="asap">Asap</option>
-                <option class="ibm" value="ibm">IBM Plex Mono</option>
+                <optgroup label="Choose A Font" class="choose_a-font">
+                  <option class="danfo" value="danfo">Danfo</option>
+                  <option class="jaro" value="jaro">Jaro</option>
+                  <option class="asap" value="asap">Asap</option>
+                  <option class="ibm" value="ibm">IBM Plex Mono</option>
+                </optgroup>
+                <optgroup label="Text Effect" class="text_animation">
+                </optgroup>
               </select>
             </li>
             <div class="SBC">
@@ -75,7 +76,6 @@
             <li class="BS">
               Blink Speed: <input type="range" id="slispeed" min="100" max="2000" step="100" value="500">
             <span id="speedValue">500</span>ms <button id="startBlinking">Blink</button>
-            <br><br>
             <p id="blinkText"></p>
 
             <li class="AS">

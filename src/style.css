@@ -365,19 +365,17 @@ footer {
 }
 
 .animation {
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
-
-.BS{
-  padding-top: 10px;
+.BS {
+  margin-top: 10px;
 }
-
 .AS {
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .BA {
-  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 #BGSelector {
@@ -414,7 +412,7 @@ footer {
 }
 
 .FS {
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .danfo {
   color: black;
@@ -471,6 +469,18 @@ footer {
   font-weight: bold;
   color: #333;
   display: none;
+}
+#slispeed {
+  position: relative;
+  top: 8px;
+}
+.text_animation {
+  color: black;
+  font-style: normal;
+}
+.choose_a-font {
+  color: black;
+  font-style: normal;
 }
 
 
