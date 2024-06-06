@@ -4,8 +4,8 @@ function scroll_animation() {
   requestAnimationFrame(scroll_animation); // loop
 
   // Wrap around if x exceeds canvas width
-  if (x > textCanvas.width + textCtx.measureText(userInput.value).width / 2) {
-    x = -(textCanvas.width + textCtx.measureText(userInput.value).width) / 2;
+  if (x > textCanvas.width + textCtx.measureText(userInput.value).width/2) {
+    x = -(textCanvas.width + textCtx.measureText(userInput.value).width/2);
   }
 
   if (isNaN(speedX) || speedX === 0) {
@@ -14,6 +14,7 @@ function scroll_animation() {
 
   x += speedX;
 
+  console.log(x);
   clear();
   updateCanvas(
     userInput.value,

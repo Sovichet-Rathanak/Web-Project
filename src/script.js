@@ -171,6 +171,10 @@ function bg_select() {
     case "flow":
       flow_field();
       break;
+    case "firework":
+      launchFirework();
+      loop();
+      break;
     default:
       break;
   }

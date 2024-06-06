@@ -19,12 +19,6 @@ class Particle {
 
   draw(backgroundCtx) {
     // Specify which canvas we want to draw on
-   
-    // Draw the particle
-    // backgroundCtx.beginPath();
-    // backgroundCtx.arc(this.x, this.y, 3, 0, 2 * Math.PI);
-    // backgroundCtx.fillStyle = "white";
-    // backgroundCtx.fill();
     backgroundCtx.beginPath();
     backgroundCtx.strokeStyle = this.color;
     backgroundCtx.lineWidth = 1;
@@ -81,7 +75,7 @@ class Effect {
     this.width = this.backgroundCanvas.width;
     this.height = this.backgroundCanvas.height;
     this.particles = [];
-    this.numberOfParticles = 2000;
+    this.numberOfParticles = 1000;
     this.cellsize = 20;
     this.rows;
     this.cols;
