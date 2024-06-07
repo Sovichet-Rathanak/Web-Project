@@ -25,18 +25,24 @@ body {
 }
 #FontSelector {
   color: #A6E22E;
+  border-bottom: 1.5px solid #A6E22E;
 }
 #AnimSelector {
   color: #A6E22E;
+  border-bottom: 1.5px solid #A6E22E;
 }
 #speed {
   color: #A6E22E;
+  border-bottom: 1.5px solid #A6E22E;
 }
 #BGSelector {
   color: #A6E22E;
+  border-bottom: 1.5px solid #A6E22E;
 }
 #size{
   color: #A6E22E;
+  border-bottom: 1.5px solid #A6E22E;
+
 }
 #text-effect {
   color: #A6E22E;

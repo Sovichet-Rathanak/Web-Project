@@ -1,4 +1,6 @@
-function startBurningEffect(text) {
+//flame.js
+function startBurningEffect(text, flamecolor, font, size, xPos, yPos) {
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value);
   let img;
   const loc = [];
   class P {
@@ -33,28 +35,31 @@ function startBurningEffect(text) {
         this.as = 0.6 + Math.random() * 0.1;
       }
     }
-    render(ctx) {
-      ctx.save();
-      ctx.fillStyle = `hsla(${this.h}, 100%, 50%, ${this.a})`;
-      ctx.translate(this.x, this.y);
-      ctx.scale(this.s, this.s);
-      ctx.beginPath();
-      ctx.arc(0, 0, this.r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
+    render(textCtx) {
+      textCtx.save();
+      textCtx.fillStyle = `hsla(${this.h}, 100%, 50%, ${this.a})`;
+      textCtx.translate(this.x, this.y);
+      textCtx.scale(this.s, this.s);
+      textCtx.beginPath();
+      textCtx.arc(0, 0, this.r, 0, Math.PI * 2);
+      textCtx.fill();
+      textCtx.restore();
     }
   }
 
-  ctx.font = "140px Verdana";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(text, c.width / 2, c.height / 2);
-  img = ctx.getImageData(0, 0, c.width, c.height).data;
-  ctx.clearRect(0, 0, c.width, c.height);
+  // Set font properties
+  textCtx.font = `${size}px '${font}'`;
+  textCtx.textAlign = "center";
+  textCtx.textBaseline = "middle";
+  textCtx.fillStyle = flamecolor;
 
-  for (let y = 0; y < c.height; y += 1) {
-    for (let x = 0; x < c.width; x += 1) {
-      const idx = (x + y * c.width) * 4 - 1;
+  textCtx.fillText(text, xPos, yPos);
+  img = textCtx.getImageData(0, 0, textCanvas.width, textCanvas.height).data;
+  textCtx.clearRect(0, 0, textCanvas.width, textCanvas.height);
+
+  for (let y = 0; y < textCanvas.height; y += 1) {
+    for (let x = 0; x < textCanvas.width; x += 1) {
+      const idx = (x + y * textCanvas.width) * 4 - 1;
       if (img[idx] > 0) {
         loc.push({ x, y });
       }
@@ -71,30 +76,17 @@ function startBurningEffect(text) {
     ps.push(p);
   }
 
+
   requestAnimationFrame(function loop() {
+    textCtx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    textCtx.fillRect(0, 0, textCanvas.width, textCanvas.height);
+    textCtx.globalCompositeOperation = "lighter";
+    clear();
     requestAnimationFrame(loop);
-    ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-    ctx.fillRect(0, 0, c.width, c.height);
-    ctx.globalCompositeOperation = "lighter";
     for (let i = 0, len = ps.length; i < len; i++) {
       const p = ps[i];
       p.update();
-      p.render(ctx);
+      p.render(textCtx);
     }
   });
 }
-
-window.te_select = function () {
-  const select = document.getElementById("TESelector");
-  const value = select.value;
-  const text = userInput.value;
-
-  const burningCanvas = document.getElementById("burningCanvas");
-  if (value === "burn") {
-    burningCanvas.style.display = "block";
-    startBurningEffect(text);
-  } else {
-    burningCanvas.style.display = "none";
-  }
-};

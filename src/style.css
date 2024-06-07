@@ -511,6 +511,13 @@ footer {
   .dropdown-menu {
     width: 1400px;
   }
+  #theme-center {
+    position: absolute;
+    min-height: 130%;
+    min-width: 100%;
+    fill: rgb(70, 66, 66);
+    background-color: rgba(50, 51, 50, 0.5); /* Green background with 50% opacity */
+  }
   #theme-area {
     margin-top: 1rem;
     padding: 1.4rem 1rem;
@@ -1164,6 +1171,19 @@ footer {
   outline: none;
   border-bottom: 2px solid skyblue;
 }
+#text-effect {
+  color: white;
+}
+#wob {
+  color: black;
+}
+.text3D {
+  color: black;
+}
+#FW {
+  color: black;
+}
+
 
 /* @media (max-width: 950px) {
   main {

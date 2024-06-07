@@ -73,7 +73,6 @@
               <li>Background Color:</li>
               <input type="color" id="TCP" class="color-bg" value="#000000" />
             </div>
-
             <li class="effect">
               <span>Text Effecct: </span>
               <select id="text-effect" onchange="effect_selector()">
@@ -81,7 +80,8 @@
                   Choose An Animation
                 </option>
                 <option value="wobble" id="wob"> Wobble </option>
-                <option value="txt3D"> 3D Text </option>
+                <option value="txt3D" class="text3D"> 3D Text </option>
+                <option value="flame" class="text3D"> Flame</option>
               </select>
             </li>
 
@@ -141,5 +141,6 @@
     <script src="text-effect/wobble.js"></script>
     <script src="text-effect/txt3D.js"></script>
     <script src="text-effect/flame.js"></script>
+
   </body>
 </html>

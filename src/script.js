@@ -152,6 +152,9 @@ function effect_selector() {
     case "txt3D":
       animate_3d();
       break;
+    case "flame":
+      startBurningEffect(userInput.value, textColor.value, fontSelector.value, fontsize.value, x, y);
+    break;   
     default:
       break;
   }

@@ -57,6 +57,7 @@ body {
 }
 #size{
   color: #25cdc5;
+  border-bottom: 1.5px solid #25cdc5;
 }
 /* End  */
 #left-wing {
@@ -74,7 +75,6 @@ body {
 #text-display {
   color: #25cdc5;
 }
-
 #input-field {
   background: #494b4f;
   color: #25cdc5;;

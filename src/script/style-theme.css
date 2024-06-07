@@ -7,7 +7,7 @@
 
   #theme-center {
     position: absolute;
-    min-height: 120%;
+    min-height: 130%;
     min-width: 100%;
     fill: rgb(70, 66, 66);
     background-color: rgba(50, 51, 50, 0.5); /* Green background with 50% opacity */
