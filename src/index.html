@@ -56,10 +56,7 @@
                 <option class="ibm" value="ibm">IBM Plex Mono</option>
               </select>
             </li>
-            <div class="SBC">
-              <li>Background Color:</li>
-              <input type="color" id="TCP" class="color-bg" value="#000000" />
-            </div>
+
             <li class="animation">
               <span>Text Animation:</span>
               <select id="AnimSelector" onchange="ani_select()">
@@ -69,6 +66,22 @@
                 <option value="scroll" id="scroll">Scroll</option>
                 <option value="float" id="float">Float</option>
                 <option value="reset" style="font-weight: bold" id="reset">Reset</option>
+              </select>
+            </li>
+
+            <div class="SBC">
+              <li>Background Color:</li>
+              <input type="color" id="TCP" class="color-bg" value="#000000" />
+            </div>
+
+            <li class="effect">
+              <span>Text Effecct: </span>
+              <select id="text-effect" onchange="effect_selector()">
+                <option value="empty" class="default-option" disabled selected>
+                  Choose An Animation
+                </option>
+                <option value="wobble" id="wob"> Wobble </option>
+                <option value="txt3D"> 3D Text </option>
               </select>
             </li>
 
@@ -94,7 +107,7 @@
               </select>
             </li>
             <li class="FS">
-              <span>Font Size: </span>
+              <span>Font Size: </span>  
               <input type="number" name="" id="size" min="100" value="100"/>
             </li>
             </li>
@@ -124,5 +137,7 @@
     <script src="text-animation/float.js"></script>
     <script src="text-animation/scroll.js"></script>
     <script src="text-effect/blink.js"></script>
+    <script src="text-effect/wobble.js"></script>
+    <script src="text-effect/txt3D.js"></script>
   </body>
 </html>

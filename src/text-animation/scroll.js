@@ -13,13 +13,5 @@ function scroll_animation() {
   }
 
   x += speedX;
-
-  console.log(x);
-  clear();
-  updateCanvas(
-    userInput.value,
-    textColor.value,
-    fontSelector.value,
-    fontsize.value
-  ); // draw  // New: add fontSelector.value
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value); 
 }

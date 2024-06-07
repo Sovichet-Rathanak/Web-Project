@@ -125,3 +125,18 @@ function launchFirework() {
   fireworks.push(new Firework(x, y, targetX, targetY));
   setTimeout(launchFirework, random(50, 700)); // Launch another firework after a random delay
 }
+
+function starynight(){
+  let cellsize = 20;
+  let rows = Math.floor(this.height / cellsize);
+  let cols = Math.floor(this.width / cellsize);
+
+  for(let y = 0; y <= rows; y++){
+    for(let x = 0; x <= cols; x++){
+      backgroundCtx.beginPath();
+      backgroundCtx.arc(x, y, 3, 0, 2 * Math.PI);
+      backgroundCtx.fillStyle = "white";
+      backgroundCtx.stroke();
+    }
+  }
+}

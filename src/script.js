@@ -59,7 +59,7 @@ boardColorPicker.addEventListener("input", () => {
 });
 
 // Add event listener to the Full Screen button
-FSbutton.addEventListener("click", function(){
+FSbutton.addEventListener("click", function () {
   toggleFullScreen();
 });
 
@@ -141,6 +141,22 @@ function animationreset() {
   );
 }
 
+//text effect
+function effect_selector() {
+  var efxValue = document.getElementById("text-effect").value;
+
+  switch (efxValue) {
+    case "wobble":
+      wobbleanimate();
+      break;
+    case "txt3D":
+      animate_3d();
+      break;
+    default:
+      break;
+  }
+}
+
 //animation selector
 function ani_select() {
   var animValue = document.getElementById("AnimSelector").value;
@@ -174,6 +190,7 @@ function bg_select() {
     case "firework":
       launchFirework();
       loop();
+      starynight();
       break;
     default:
       break;

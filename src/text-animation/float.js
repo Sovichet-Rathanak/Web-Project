@@ -48,11 +48,6 @@ function float_anim() {
   y += speedY;
   x += speedX;
 
-  clear();
-  updateCanvas(
-    userInput.value,
-    textColor.value,
-    fontSelector.value,
-    fontsize.value
-  );
+  updateCanvas(userInput.value, textColor.value, fontSelector.value, fontsize.value);   
 }
+  
