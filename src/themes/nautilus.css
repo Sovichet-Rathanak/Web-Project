@@ -31,18 +31,38 @@ body {
 }
 #FontSelector {
   color: #eac004;
+  border-bottom: 1.5px solid #eac004;
 }
 #AnimSelector {
   color: #eac004;
+  border-bottom: 1.5px solid #eac004;
 }
 #speed {
   color: #eac004;
+  border-bottom: 1.5px solid #eac004;
+}
+#text-effect {
+  color: #eac004;
+  border-bottom: 1.5px solid #eac004;
+}
+#wob {
+  color: black;
+}
+#FW {
+  color: black;
 }
 #BGSelector {
   color: #eac004;
+  border-bottom: 1.5px solid #eac004;
 }
 #size{
   color: #eac004;
+  border-bottom: 1.5px solid #eac004;
+  
+}
+#text-effect {
+  color: #eac004;
+  border-bottom: 1.5px solid #eac004;
 }
 /* End  */
 

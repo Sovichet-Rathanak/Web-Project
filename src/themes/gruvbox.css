@@ -26,19 +26,32 @@ body {
 }
 #FontSelector {
   color: #d79921;
+  border-bottom: 1.5px solid #d79921;
 }
 #AnimSelector {
   color: #d79921;
+  border-bottom: 1.5px solid #d79921;
 }
 #speed {
   color: #d79921;
 }
 #BGSelector {
   color: #d79921;
+  border-bottom: 1.5px solid #d79921;
 }
-
+#text-effect {
+  color: #d79921;
+  border-bottom: 1.5px solid #d79921;
+}
 #size{
   color: #d79921; 
+  border-bottom: 1.5px solid #d79921;
+}
+#FW {
+  color: black;
+}
+#wob {
+  color: black;
 }
 /* End  */
 

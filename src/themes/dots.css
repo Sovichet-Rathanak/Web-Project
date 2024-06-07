@@ -34,19 +34,34 @@ body {
 }
 #FontSelector {
   color: #36c1f6;
+  border-bottom: 1.5px solid #36c1f6;
 }
 #AnimSelector {
   color: #36c1f6;
+  border-bottom: 1.5px solid #36c1f6;
 }
 #speed {
   color: #36c1f6;
 }
 #BGSelector {
   color: #36c1f6;
+  border-bottom: 1.5px solid #36c1f6;
 }
 #size{
   color: #36c1f6;
+  border-bottom: 1.5px solid #36c1f6;
 }
+#text-effect {
+  color: #36c1f6;
+  border-bottom: 1.5px solid #36c1f6;
+}
+#wob {
+  color: black;
+}
+#FW {
+  color: black;
+}
+
 /* End  */
 
 #left-wing {
