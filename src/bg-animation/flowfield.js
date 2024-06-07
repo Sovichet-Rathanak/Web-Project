@@ -19,12 +19,13 @@ class Particle {
 
   draw(backgroundCtx) {
     // Specify which canvas we want to draw on
-    backgroundCtx.beginPath();
-
+   
     // Draw the particle
-    backgroundCtx.arc(this.x, this.y, 3, 0, 2 * Math.PI);
-    backgroundCtx.fillStyle = "white";
-    backgroundCtx.fill();
+    // backgroundCtx.beginPath();
+    // backgroundCtx.arc(this.x, this.y, 3, 0, 2 * Math.PI);
+    // backgroundCtx.fillStyle = "white";
+    // backgroundCtx.fill();
+    backgroundCtx.beginPath();
     backgroundCtx.strokeStyle = this.color;
     backgroundCtx.lineWidth = 1;
     backgroundCtx.stroke();
@@ -85,7 +86,7 @@ class Effect {
     this.rows;
     this.cols;
     this.flowField = [];
-    this.curve = 3.4;
+    this.curve = 3.6;
     this.zoom = 0.055;
     this.intial();
 

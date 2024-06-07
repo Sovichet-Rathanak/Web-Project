@@ -43,24 +43,20 @@
             <li class="color">
               <span>Pick Your Color: </span>
               <input type="color" id="ColorPicker" value="#FFF000" />
-            </li>
+            </li>  
             <li class="font">
               <span>Pick Your Font: </span>
               <select id="FontSelector">
-                <optgroup label="Choose A Font" class="choose_a-font">
-                  <option class="danfo" value="danfo">Danfo</option>
-                  <option class="jaro" value="jaro">Jaro</option>
-                  <option class="asap" value="asap">Asap</option>
-                  <option class="ibm" value="ibm">IBM Plex Mono</option>
-                </optgroup>
-                <optgroup label="Text Effect" class="text_animation">
-                </optgroup>
+                <option value="" class="default-option" disabled selected>
+                  Choose A Font
+                </option>
+                <option class="danfo" value="danfo">Danfo</option>
+                <option class="jaro" value="jaro">Jaro</option>
+                <option class="asap" value="asap">Asap</option>
+                <option class="ibm" value="ibm">IBM Plex Mono</option>
               </select>
             </li>
-            <div class="SBC">
-              <li>Background Color:</li>
-              <input type="color" id="TCP" class="color-bg" value="#000000" />
-            </div>
+
             <li class="animation">
               <span>Text Animation:</span>
               <select id="AnimSelector" onchange="ani_select()">
@@ -72,15 +68,27 @@
                 <option value="reset" style="font-weight: bold" id="reset">Reset</option>
               </select>
             </li>
+            <div class="SBC">
+              <li>Background Color:</li>
+              <input type="color" id="TCP" class="color-bg" value="#000000" />
+            </div>
+            <li class="effect">
+              <span>Text Effect: </span>
+              <select id="text-effect" onchange="effect_selector()" class="text-effect">
+                <option value="empty" class="default-option" disabled selected>
+                  Choose An Animation
+                </option>
+                <option value="wobble" id="wob"> Wobble </option>
+              </select>
+            </li>
 
             <li class="BS">
               Blink Speed: <input type="range" id="slispeed" min="100" max="2000" step="100" value="500">
             <span id="speedValue">500</span>ms <button id="startBlinking">Blink</button>
             <p id="blinkText"></p>
-
             <li class="AS">
               Animation Speed:
-              <input type="number" name="" id="speed" min="1" value="1" />
+              <input type="number" name="" id="speed" min="1" value="5" />
             </li>
             <li class="BA">
               <span>Background Animation:</span>
@@ -90,10 +98,11 @@
                 </option>
                 <option value="rect" id="R">Rectangles</option>
                 <option value="flow" id="F">Flow Field</option>
+                <option value="firework" id="FW">Firework</option>
               </select>
             </li>
             <li class="FS">
-              <span>Font Size</span>
+              <span>Font Size: </span>  
               <input type="number" name="" id="size" min="100" value="100"/>
             </li>
             </li>
@@ -111,13 +120,18 @@
       <!-- break grayscale  -->
     </div>
     <div id="footer">
-      <a href="https://github.com/briano1905/typings#typings" target="_blank" tabindex="3">User guide</a>/
+      <a href="https://github.com/briano1905/typings#typings" target="_blank" tabindex="3" class="user_guide">User guide</a>/
       <div id="show-themes"class="button" onClick="showThemeCenter();" tabindex="4">Themes</div>
     </div>
     <!-- break themes function  -->
     <script src="script.js"></script>
     <script src="bg-animation/flowfield.js"></script>
     <script src="bg-animation/rectangles.js"></script>
+    <script src="bg-animation/firework.js"></script>
     <script src="script/script-theme.js"></script>
+    <script src="text-animation/float.js"></script>
+    <script src="text-animation/scroll.js"></script>
+    <script src="text-effect/blink.js"></script>
+    <script src="text-effect/wobble.js"></script>
   </body>
 </html>

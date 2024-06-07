@@ -22,18 +22,44 @@ body {
 }
 #FontSelector {
   color: #BAEE75;
+  border-bottom: 1.5px solid #BAEE75;
 }
 #AnimSelector {
   color: #BAEE75;
+  border-bottom: 1.5px solid #BAEE75;
 }
 #speed {
   color: #BAEE75;
+  border-bottom: 1.5px solid #BAEE75;
+}
+#text-effect {
+  color: #BAEE75;
+  border-bottom: 1.5px solid #BAEE75;
+}
+#wob {
+  color: black;
+}
+#FW {
+  color: black;
 }
 #BGSelector {
   color: #BAEE75;
+  border-bottom: 1.5px solid #BAEE75;
 }
 #size{
   color: #BAEE75;
+  border-bottom: 1.5px solid #BAEE75;
+  
+}
+#text-effect {
+  color: #BAEE75;
+  border-bottom: 1.5px solid #BAEE75;
+}
+#wob {
+  color: black;
+}
+#FW {
+  color: black;
 }
 /* End  */
 

@@ -22,18 +22,38 @@ body {
 }
 #FontSelector {
   color: #eed484;
+  border-bottom: 1.5px solid #eed484;
 }
 #AnimSelector {
   color: #eed484;
+  border-bottom: 1.5px solid #eed484;
 }
 #speed {
   color: #eed484;
+  border-bottom: 1.5px solid #eed484;
+}
+#text-effect {
+  color: #eed484;
+  border-bottom: 1.5px solid #eed484;
+}
+#wob {
+  color: black;
+}
+#FW {
+  color: black;
 }
 #BGSelector {
   color: #eed484;
+  border-bottom: 1.5px solid #eed484;
 }
 #size{
   color: #eed484;
+  border-bottom: 1.5px solid #eed484;
+  
+}
+#text-effect {
+  color: #eed484;
+  border-bottom: 1.5px solid #eed484;
 }
 /* End  */
 #left-wing {

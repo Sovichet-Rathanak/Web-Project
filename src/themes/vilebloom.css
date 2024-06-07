@@ -45,6 +45,16 @@ body {
 #BGSelector {
   color: #ffffff;
 }
+#text-effect {
+  color: #ffffff;
+  border-bottom: 1.5px solid #ffffff;
+}
+#wob {
+  color: black;
+}
+#FW {
+  color: black;
+}
 /* End  */
 #left-wing {
   color: #ffffff;

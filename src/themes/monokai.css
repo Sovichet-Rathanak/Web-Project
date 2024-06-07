@@ -38,6 +38,16 @@ body {
 #size{
   color: #A6E22E;
 }
+#text-effect {
+  color: #A6E22E;
+  border-bottom: 1.5px solid #A6E22E;
+}
+#wob {
+  color: black;
+}
+#FW {
+  color: black;
+}
 /* End  */
 #left-wing {
   color: #A6E22E;

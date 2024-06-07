@@ -51,7 +51,9 @@ body {
 #left-wing {
   color: #fafafa;
 }
-
+#size {
+  border-bottom: 1.5px solid white;
+}
 #right-wing {
   color: #fafafa;
 }

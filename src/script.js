@@ -13,52 +13,12 @@ const FSbutton = document.querySelector(".FSbutton");
 const fontSelector = document.getElementById("FontSelector");
 const userSpeed = document.getElementById("speed");
 
-const speedSlider = document.getElementById("slispeed");
-const speedValue = document.getElementById("speedValue");
-const startButton = document.getElementById("startBlinking");
-
 const fontsize = document.getElementById("size");
 
 // Event listener for speed input
 userSpeed.addEventListener("input", function () {
   speedY = speedX = parseFloat(userSpeed.value);
   console.log(speedY);
-});
-
-// Set up canvas sizes
-function resizeCanvas() {
-  const ratio = window.devicePixelRatio;
-  textCanvas.width = outerbox.clientWidth * ratio;
-  textCanvas.height = outerbox.clientHeight * ratio;
-  textCtx.scale(ratio, ratio);
-  backgroundCanvas.width = outerbox.clientWidth * ratio;
-  backgroundCanvas.height = outerbox.clientHeight * ratio;
-  backgroundCtx.scale(ratio, ratio);
-
-  // New (need)
-  x = textCanvas.width / 2 / window.devicePixelRatio;
-  y = textCanvas.height / 2 / window.devicePixelRatio;
-
-  updateCanvas(
-    userInput.value,
-    textColor.value,
-    fontSelector.value,
-    fontsize.value
-  ); // New : add fontSelector.value
-}
-
-// Initialize canvas size and listen for window resize events
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
-// Add event listener to the color picker input
-boardColorPicker.addEventListener("input", () => {
-  outerbox.style.backgroundColor = boardColorPicker.value;
-});
-
-// Add event listener to the Full Screen button
-FSbutton.addEventListener("click", function () {
-  toggleFullScreen();
 });
 
 // Add event listeners for user input and text color change
@@ -89,14 +49,19 @@ fontSelector.addEventListener("change", () => {
   ); // New: Add font selector
 });
 
-// Fullscreen toggle function
-function toggleFullScreen() {
-  if (!document.fullscreenElement) {
-    outerbox.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
-}
+// Initialize canvas size and listen for window resize events
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+// Add event listener to the color picker input
+boardColorPicker.addEventListener("input", () => {
+  outerbox.style.backgroundColor = boardColorPicker.value;
+});
+
+// Add event listener to the Full Screen button
+FSbutton.addEventListener("click", function(){
+  toggleFullScreen();
+});
 
 fontsize.addEventListener("input", function () {
   updateCanvas(
@@ -106,6 +71,37 @@ fontsize.addEventListener("input", function () {
     fontsize.value
   ); // New: Add font size
 });
+
+// Set up canvas sizes
+function resizeCanvas() {
+  const ratio = window.devicePixelRatio;
+  textCanvas.width = outerbox.clientWidth * ratio;
+  textCanvas.height = outerbox.clientHeight * ratio;
+  textCtx.scale(ratio, ratio);
+  backgroundCanvas.width = outerbox.clientWidth * ratio;
+  backgroundCanvas.height = outerbox.clientHeight * ratio;
+  backgroundCtx.scale(ratio, ratio);
+
+  // New (need)
+  x = textCanvas.width / 2 / window.devicePixelRatio;
+  y = textCanvas.height / 2 / window.devicePixelRatio;
+
+  updateCanvas(
+    userInput.value,
+    textColor.value,
+    fontSelector.value,
+    fontsize.value
+  ); // New : add fontSelector.value
+}
+
+// Fullscreen toggle function
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    outerbox.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
 
 // Clearing canvas
 function clear() {
@@ -129,80 +125,12 @@ function updateCanvas(text, color, font, size) {
   textCtx.fillText(text, x, y);
 }
 
-// Animating text
-function scroll_animation() {
-  // Looping animation
-  requestAnimationFrame(scroll_animation); // loop
+function animationreset() {
+  speedX = speedY = 0;
+  x = textCanvas.width / 2 / window.devicePixelRatio;
+  y = textCanvas.height / 2 / window.devicePixelRatio;
 
-  // Wrap around if x exceeds canvas width
-  if (x > textCanvas.width + textCtx.measureText(userInput.value).width / 2) {
-    x = -(textCanvas.width + textCtx.measureText(userInput.value).width) / 2;
-  }
-  
-  if (isNaN(speedX) || speedX === 0) {
-    speedX = 0; // or any other default non-zero value
-  }
-  
-  x += speedX;
-
-  clear();
-  updateCanvas(
-    userInput.value,
-    textColor.value,
-    fontSelector.value,
-    fontsize.value
-  ); // draw  // New: add fontSelector.value
-}
-
-function float_anim() {
-  requestAnimationFrame(float_anim);
-
-  // Function to get a random color
-  function randomcolor() {
-    let letters = "0123456789ABCDEF"; // Hex code
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.trunc(Math.random() * 16)];
-    }
-    return color;
-  }
-
-  // Get the width of the text
-  let textMetrics = textCtx.measureText(userInput.value);
-
-  let textWidth = textMetrics.width;
-  let textHeight =
-    textMetrics.actualBoundingBoxAscent + textMetrics.actualBoundingBoxDescent;
-
-  if (
-    x + textWidth / 2 >= textCanvas.width / window.devicePixelRatio ||
-    x - textWidth / 2 <= 0
-  ) {
-    speedX = -speedX;
-    textColor.value = randomcolor();
-  }
-
-  if (
-    y + textHeight / 2 >= textCanvas.height / window.devicePixelRatio ||
-    y - textHeight / 2 <= 0
-  ) {
-    speedY = -speedY;
-    textColor.value = randomcolor();
-  }
-
-  if (isNaN(speedX) || speedX === 0) {
-    speedX = 0; 
-  }
-  if (isNaN(speedY) || speedY === 0) {
-    speedY = 0;
-  }
-  if (isNaN(x) || isNaN(y)) {
-    x = textCanvas.width / 2 / window.devicePixelRatio;
-    y = textCanvas.height / 2 / window.devicePixelRatio;
-  }
-
-  y += speedY;
-  x += speedX;
+  document.getElementById("speed").value = 0;
 
   clear();
   updateCanvas(
@@ -213,21 +141,52 @@ function float_anim() {
   );
 }
 
+let waveOffset = 0;
+function drawText() {
+  textCtx.clearRect(0, 0, textCanvas.width, textCanvas.height);
+  // textCtx.textAlign = 'center';
+  // textCtx.textBaseline = 'middle';
+  // textCtx.font = `10rem Arial`;
 
-function animationreset() {
-  speedX = speedY = 0;
-  x = textCanvas.width / 2 / window.devicePixelRatio;
-  y = textCanvas.height / 2 / window.devicePixelRatio;
-  
-  document.getElementById('speed').value = 0;
+  // const centerX = textCanvas.width / 2;
+  // const centerY = textCanvas.height / 2;
+  const characterWidth = textCtx.measureText(userInput).width / userInput.length;
 
-  clear();
-    updateCanvas(
-      userInput.value,
-      textColor.value,
-      fontSelector.value,
-      fontsize.value
-    ); 
+  for (let i = 0; i < userInput.length; i++) {
+      const angle = (i * 100) + waveOffset;
+      const yOffset = Math.sin((angle + waveOffset) * Math.PI / 180) * 30; // Adjust amplitude here
+      const scale = 1 + Math.sin((angle + waveOffset) * Math.PI / 180) * 0.05; // Adjust frequency here
+      const colorHue = (waveOffset + i * 30) % 360;
+
+      textCtx.save();
+      textCtx.translate(x - (userInput.length * characterWidth / 2) + i * characterWidth, y + yOffset);
+      textCtx.scale(scale, scale);
+      textCtx.fillStyle = `hsl(${colorHue}, 100%, 50%)`;
+      // Draw each character individually
+      textCtx.fillText(userInput[i], 0, 0);
+      textCtx.restore();
+  }
+}
+
+// Animation loop
+function wobbleanimate() {
+  waveOffset += 2;
+  console.log("pressed"); 
+  drawText();
+  requestAnimationFrame(wobbleanimate);
+}
+
+//text effct
+function texteffect(){
+  var effecValue = document.getElementById("effeectselect").value;
+
+  switch(effecValue){
+    case "hour":
+      wobbleanimate();
+      break;
+    default:
+      break;
+  }
 }
 
 //animation selector
@@ -265,29 +224,5 @@ function bg_select() {
   }
 }
 
-let blinkInterval;
-let speedX = parseFloat(userSpeed.value);
-let speedY = parseFloat(userSpeed.value);
 
-function blinkText() {
-  const speed = parseInt(speedSlider.value, 10);
 
-  clearInterval(blinkInterval);
-  blinkInterval = setInterval(() => {
-    textCtx.globalAlpha = textCtx.globalAlpha === 1 ? 0 : 1;
-    updateCanvas(
-      userInput.value,
-      textColor.value,
-      fontSelector.value,
-      fontsize.value
-    );
-  }, speed);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  speedSlider.addEventListener("input", () => {
-    speedValue.textContent = speedSlider.value;
-  });
-
-  startButton.addEventListener("click", blinkText);
-});
