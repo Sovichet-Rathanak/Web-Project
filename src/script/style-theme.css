@@ -24,7 +24,7 @@
 #left-wing {
     align-self: flex-start; /* Align < back to the start */
     margin-bottom: auto; /* Push it to the top */
-    margin-left: 200px; /* Adjust as needed for spacing */
+    margin-left: 50px;
     cursor: pointer; /* Make it look clickable */
 }
 
